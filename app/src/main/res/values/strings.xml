@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">AluguelDeCarros</string>
+    <string name="nome_do_locatario">Nome do locatario</string>
+    <string name="cnh">Cnh</string>
+    <string name="categoria_cnh">Categoria cnh</string>
+    <string name="data_da_cnh">Data da cnh</string>
+    <string name="cpf">Cpf</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="n_mero">Número</string>
+    <string name="bairro">Bairro</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+    <string name="cep">Cep</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="data_de_nascimento">Data de nascimento</string>
+    <string name="senha">Senha</string>
+    <string name="salvar">Salvar</string>
+    <string name="nome_do_locador">Nome do Locador</string>
+    <string name="login">Login</string>
+    <string name="lembrar_login">Lembrar login</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha_login">Senha</string>
+    <string name="marca">Marca</string>
+    <string name="modelo">Modelo</string>
+    <string name="cor">Cor</string>
+    <string name="placa">Placa</string>
+    <string name="tipo_de_combust_vel">Tipo de combustível</string>
+    <string name="ar_condicionado">Ar-condicionado</string>
+    <string name="quatro_portas">Quatro portas</string>
+    <string name="trio_el_trico">Trio-elétrico</string>
+    <string name="r_dio_gps">Rádio/Gps</string>
+    <string name="quilometragem">Quilometragem</string>
+    <string name="crlv_e">CRLV-E</string>
+    <string name="cpf_propriet_rio">CPF proprietário</string>
 </resources>
