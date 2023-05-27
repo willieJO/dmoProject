@@ -33,4 +33,6 @@
     <string name="quilometragem">Quilometragem</string>
     <string name="crlv_e">CRLV-E</string>
     <string name="cpf_propriet_rio">CPF proprietário</string>
+    <string name="Registro_Locador">Registrar Locador</string>
+    <string name="Registro_Locatario">Registrar Locatário</string>
 </resources>
