@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="@id/edittext_usuario"
+        app:layout_constraintStart_toStartOf="@id/edittext_usuario"
+        app:layout_constraintTop_toTopOf="@id/check_lembrar_login" />
+
+    <CheckBox
+        android:id="@+id/check_lembrar_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/lembrar_login"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/edittext_usuario"
+        app:layout_constraintStart_toStartOf="@id/edittext_usuario"
+        app:layout_constraintTop_toBottomOf="@id/edittext_senha" />
+
+
+    <EditText
+        android:id="@+id/edittext_usuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:background="@color/white"
+        android:hint="@string/usuario"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edittext_senha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@color/white"
+        android:hint="@string/senha_login"
+        android:inputType="numberPassword"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/edittext_usuario"
+        app:layout_constraintStart_toStartOf="@id/edittext_usuario"
+        app:layout_constraintTop_toBottomOf="@id/edittext_usuario" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
