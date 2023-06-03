@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements MainMVP.View{
     private Button buttonEntrar;
     private CheckBox checkBoxManterConectado;
     private FloatingActionMenu fabMenu;
-    private FloatingActionButton fabLocatario;
     private FloatingActionButton fabLocador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements MainMVP.View{
         buttonEntrar =  findViewById(R.id.button_login);
         checkBoxManterConectado = findViewById(R.id.check_lembrar_login);
         fabMenu = findViewById(R.id.fab_menu);
-        fabLocatario = findViewById(R.id.fab_locatario);
         fabLocador = findViewById(R.id.fab_locador);
     }
 
@@ -60,21 +58,21 @@ public class MainActivity extends AppCompatActivity implements MainMVP.View{
     public void setOnCLick() {
         buttonEntrar.setOnClickListener(view -> realizarLogin());
         fabMenu.setOnMenuButtonClickListener(view -> menu());
-        fabLocatario.setOnClickListener(view -> cadastrarLocatario());;
-        fabLocador.setOnClickListener(view -> cadastrarLocador());
+        fabLocador.setOnClickListener(view -> cadastrarUsuario());
+    }
+
+    @Override
+    public void showToast(String mensagem) {
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
     }
 
     public void realizarLogin() {
-        presenter.realizarLogin();
+        presenter.realizarLogin(editUsuario.getText().toString(), editSenha.getText().toString());
     }
 
-    public void cadastrarLocatario() {
-        presenter.openCadastroLocatario();
-        fabMenu.close(true);
-    }
 
-    public void cadastrarLocador() {
-        presenter.openCadastroLocador();
+    public void cadastrarUsuario() {
+        presenter.openCadastro();
         fabMenu.close(true);
     }
 

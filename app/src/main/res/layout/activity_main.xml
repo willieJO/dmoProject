@@ -56,13 +56,6 @@
         tools:ignore="MissingConstraints">
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_locatario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_float_carro"
-            fab:fab_label="@string/Registro_Locatario" />
-
-        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab_locador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

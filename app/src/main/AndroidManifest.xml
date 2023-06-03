@@ -13,21 +13,21 @@
         android:theme="@style/Theme.AluguelDeCarros"
         tools:targetApi="31">
         <activity
-            android:screenOrientation="sensor"
             android:name=".view.NewCarActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensor" />
         <activity
-            android:screenOrientation="sensor"
-            android:name=".view.NewLocadorActivity"
-            android:exported="false" />
+            android:name=".view.NewUserActivity"
+            android:exported="false"
+            android:screenOrientation="sensor" />
         <activity
-            android:screenOrientation="sensor"
             android:name=".view.NewLocatarioActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensor" />
         <activity
-            android:screenOrientation="sensor"
             android:name=".view.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="sensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

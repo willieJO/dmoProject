@@ -7,11 +7,11 @@ public interface MainMVP {
         Context getContext();
         void finViewById();
         void setOnCLick();
+        void showToast(String mensagem);
     }
     interface Presenter {
         void deatach();
-        boolean realizarLogin();
-        void openCadastroLocador();
-        void openCadastroLocatario();
+        void realizarLogin(String email, String pass);
+        void openCadastro();
     }
 }

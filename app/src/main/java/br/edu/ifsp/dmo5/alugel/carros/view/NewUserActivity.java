@@ -11,12 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import br.edu.ifsp.dmo5.alugel.carros.R;
+import br.edu.ifsp.dmo5.alugel.carros.model.User;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.CadastroMVP;
 
-import br.edu.ifsp.dmo5.alugel.carros.mvp.MainMVP;
-import br.edu.ifsp.dmo5.alugel.carros.presenter.LocadorPresenter;
+import br.edu.ifsp.dmo5.alugel.carros.presenter.CadastroPresenter;
+import br.edu.ifsp.dmo5.alugel.carros.utils.Criptografia;
 
-public class NewLocadorActivity extends AppCompatActivity implements CadastroMVP.View {
+public class NewUserActivity extends AppCompatActivity implements CadastroMVP.View {
 
     EditText editNomeLocador;
     EditText editCnh;
@@ -38,8 +39,8 @@ public class NewLocadorActivity extends AppCompatActivity implements CadastroMVP
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_locador);
-        presenter = new LocadorPresenter(this);
+        setContentView(R.layout.activity_new_user);
+        presenter = new CadastroPresenter(this);
         setToolbar();
         finViewById();
         setOnCLick();
@@ -99,7 +100,22 @@ public class NewLocadorActivity extends AppCompatActivity implements CadastroMVP
     }
 
     public void cadastrarUsuario() {
-        presenter.realizarCadastro();
+        User user = new User();
+        user.setNome(editNomeLocador.getText().toString());
+        user.setCnh(editCnh.getText().toString());
+        user.setDataCnh(editDataCnh.getText().toString());
+        user.setCpf(editCpf.getText().toString());
+        user.setLogadouro(editLogadouro.getText().toString());
+        user.setNumero(editNumero.getText().toString());
+        user.setBairro(editBairro.getText().toString());
+        user.setCidade(editCidade.getText().toString());
+        user.setEstado(editEstado.getText().toString());
+        user.setCep(editCep.getText().toString());
+        user.setTelefone(editTelefone.getText().toString());
+        user.setEmail(editEmail.getText().toString());
+        user.setDataDeNascimento(editDataNascimento.getText().toString());
+        user.setSenha(editSenha.getText().toString());
+        presenter.realizarCadastro(user);
         finish();
     }
 }

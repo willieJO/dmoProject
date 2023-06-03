@@ -2,6 +2,8 @@ package br.edu.ifsp.dmo5.alugel.carros.mvp;
 
 import android.content.Context;
 
+import br.edu.ifsp.dmo5.alugel.carros.model.User;
+
 public interface CadastroMVP {
     interface  View {
         void setToolbar();
@@ -12,7 +14,7 @@ public interface CadastroMVP {
     }
     interface Presenter {
         void deatach();
-        boolean realizarCadastro();
+        boolean realizarCadastro(User user);
 
     }
 }

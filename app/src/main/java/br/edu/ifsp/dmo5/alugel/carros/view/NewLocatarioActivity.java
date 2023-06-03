@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import br.edu.ifsp.dmo5.alugel.carros.R;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.CadastroMVP;
-import br.edu.ifsp.dmo5.alugel.carros.presenter.LocadorPresenter;
+import br.edu.ifsp.dmo5.alugel.carros.presenter.CadastroPresenter;
 
 public class NewLocatarioActivity extends AppCompatActivity implements CadastroMVP.View{
     EditText editNomeLocador;
@@ -36,7 +36,7 @@ public class NewLocatarioActivity extends AppCompatActivity implements CadastroM
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_locatario);
-        presenter = new LocadorPresenter(this);
+        presenter = new CadastroPresenter(this);
         setToolbar();
         finViewById();
         setOnCLick();
@@ -96,7 +96,7 @@ public class NewLocatarioActivity extends AppCompatActivity implements CadastroM
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
     }
     public void cadastrarUsuario() {
-        presenter.realizarCadastro();
+        //presenter.realizarCadastro();
         finish();
     }
 }

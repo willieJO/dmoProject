@@ -1,6 +1,6 @@
 package br.edu.ifsp.dmo5.alugel.carros.model;
 
-public class Locador {
+public class User {
     private String nome;
     private String cnh;
     private String cnhCategoria;
