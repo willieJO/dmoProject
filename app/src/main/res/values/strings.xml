@@ -16,6 +16,7 @@
     <string name="data_de_nascimento">Data de nascimento</string>
     <string name="senha">Senha</string>
     <string name="salvar">Salvar</string>
+    <string name="continuar">Continuar</string>
     <string name="nome_do_locador">Nome do Locador</string>
     <string name="login">Login</string>
     <string name="lembrar_login">Lembrar login</string>
@@ -35,4 +36,10 @@
     <string name="cpf_propriet_rio">CPF proprietário</string>
     <string name="Registro_Locador">Registrar Locador</string>
     <string name="Registro_Locatario">Registrar Locatário</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="navigation_drawer_close">Fechar</string>
+    <string name="tirar_foto">Tirar Foto</string>
+    <string name="registrar_carro">Registrar carro</string>
 </resources>

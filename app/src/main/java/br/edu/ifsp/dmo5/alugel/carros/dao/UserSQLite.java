@@ -1,5 +1,6 @@
 package br.edu.ifsp.dmo5.alugel.carros.dao;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,8 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import br.edu.ifsp.dmo5.alugel.carros.Constant.Constant;
 import br.edu.ifsp.dmo5.alugel.carros.model.User;
+import br.edu.ifsp.dmo5.alugel.carros.utils.UserSeason;
 
-public class UserSQLite implements IUserDao{
+public class UserSQLite implements IUserDao {
     private SQLiteHelper mHelper;
     private SQLiteDatabase mDatabase;
 
@@ -32,7 +34,7 @@ public class UserSQLite implements IUserDao{
         sql += Constant.DATABASE_TELEFONE + " TEXT NOT NULL, ";
         sql += Constant.DATABASE_EMAIL + " TEXT NOT NULL, ";
         sql += Constant.DATABASE_DATA_NASCIMENTO + " TEXT NOT NULL, ";
-        sql += Constant.DATABASE_SENHA + " TEXT NOT NULL )";
+        sql += Constant.DATABASE_SENHA + " TEXT NOT NULL );";
         return sql;
     }
 
@@ -61,10 +63,12 @@ public class UserSQLite implements IUserDao{
         return lines == -1 ? false : true;
     }
 
+    @SuppressLint("Range")
     @Override
     public boolean realizarLogin(String email, String pass) {
         boolean retorno = false;
         String columns[] = new String[]{
+                Constant.DATABASE_ID,
                 Constant.DATABASE_EMAIL,
                 Constant.DATABASE_SENHA
         };
@@ -83,6 +87,7 @@ public class UserSQLite implements IUserDao{
             );
 
             if(cursor.moveToNext()){
+                UserSeason.getInstance().setUserId(cursor.getInt(cursor.getColumnIndex(Constant.DATABASE_ID)));
                 retorno = true;
             }
             cursor.close();
