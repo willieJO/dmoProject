@@ -37,6 +37,7 @@ public class CarroSQLite implements ICarroDao {
         sql += Constant.QUILOMETRAGEM + " TEXT, ";
         sql += Constant.CRLVE + " TEXT, ";
         sql += Constant.CPF_PROPRIETARIO + " TEXT, ";
+        sql += sql += Constant.PHOTO + " TEXT, ";
         sql += "FOREIGN KEY (" + Constant.ID_DONO_CARRO + ") REFERENCES " + Constant.DATABASE_CARRO + "(" + Constant.DATABASE_ID + "));";
         return sql;
     }

@@ -7,6 +7,7 @@ public class Constant {
     public final static String DATABASE_NOME = "Nome";
     public final static String DATABASE_CPF = "Cpf";
     public final static String DATABASE_CNH = "Cnh";
+    public final static String PHOTO = "Foto";
     public final static String DATABASE_CNH_VALIDADE = "CnhValidade";
     public final static String DATABASE_LOGADOURO = "Logadouro";
     public final static String DATABASE_NUMERO = "Numero";
