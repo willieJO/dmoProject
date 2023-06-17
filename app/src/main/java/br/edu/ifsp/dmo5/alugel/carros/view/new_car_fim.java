@@ -83,6 +83,11 @@ public class new_car_fim extends AppCompatActivity  implements PhotoCadastroMVP.
     }
 
     @Override
+    public Carro getCarro() {
+        return carro;
+    }
+
+    @Override
     public void setMenu() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

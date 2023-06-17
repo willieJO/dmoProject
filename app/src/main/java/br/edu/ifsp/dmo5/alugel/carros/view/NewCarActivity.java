@@ -110,10 +110,11 @@ public class NewCarActivity extends AppCompatActivity implements VeiculoCadastro
         carro.setArCondicionado(ar.isChecked() ? "1": "0");
         carro.setEletrico(eletrico.isChecked() ? "1": "0");
         carro.setPorta(porta.isChecked() ? "1" : "0");
-        carro.setRadio(radio.isChecked() ? "1" : "");
+        carro.setRadio(radio.isChecked() ? "1" : "0");
         carro.setQuilometragem(quilometragem.getText().toString());
         carro.setCrlve(crlve.getText().toString());
         carro.setCpf(cpf.getText().toString());
+        carro.setCombustivel(spinner.getSelectedItem().toString());
         presenter.continuar(carro);
     }
 

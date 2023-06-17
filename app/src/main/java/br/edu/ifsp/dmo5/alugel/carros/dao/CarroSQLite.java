@@ -1,10 +1,12 @@
 package br.edu.ifsp.dmo5.alugel.carros.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import br.edu.ifsp.dmo5.alugel.carros.Constant.Constant;
 import br.edu.ifsp.dmo5.alugel.carros.model.Carro;
+import br.edu.ifsp.dmo5.alugel.carros.utils.UserSeason;
 
 public class CarroSQLite implements ICarroDao {
 
@@ -16,7 +18,8 @@ public class CarroSQLite implements ICarroDao {
     }
 
     @Override
-    public boolean salvarCarro() {
+    public boolean salvarCarro(Carro carro) {
+
         return false;
     }
 
@@ -37,13 +40,34 @@ public class CarroSQLite implements ICarroDao {
         sql += Constant.QUILOMETRAGEM + " TEXT, ";
         sql += Constant.CRLVE + " TEXT, ";
         sql += Constant.CPF_PROPRIETARIO + " TEXT, ";
-        sql += sql += Constant.PHOTO + " TEXT, ";
+        sql += Constant.PHOTO + " TEXT, ";
         sql += "FOREIGN KEY (" + Constant.ID_DONO_CARRO + ") REFERENCES " + Constant.DATABASE_CARRO + "(" + Constant.DATABASE_ID + "));";
         return sql;
     }
 
     @Override
     public boolean create(Carro carro) {
-        return false;
+        ContentValues values = new ContentValues();
+        values.put( Constant.ID_DONO_CARRO,UserSeason.getInstance().getUserId());
+        values.put(Constant.MARCA,carro.getMarca());
+        values.put(Constant.MMODELO,carro.getMarca());
+        values.put(Constant.COR,carro.getCor());
+        values.put(Constant.PLACA,carro.getPlaca());
+        values.put(Constant.TIPO_COMBUSTIVEL,carro.getCombustivel());
+        values.put(Constant.AR,carro.getArCondicionado());
+        values.put(Constant.PORTAS,carro.getPorta());
+        values.put(Constant.ELETRICO,carro.getEletrico());
+        values.put(Constant.RADIO,carro.getRadio());
+        values.put(Constant.QUILOMETRAGEM,carro.getQuilometragem());
+        values.put(Constant.CRLVE,carro.getCrlve());
+        values.put(Constant.CPF_PROPRIETARIO,carro.getCpf());
+        values.put(Constant.PHOTO,carro.getFoto());
+        mDatabase = mHelper.getWritableDatabase();
+        long lines = mDatabase
+                .insert(Constant.DATABASE_CARRO, null, values);
+        mDatabase.close();
+        return lines == -1 ? false : true;
     }
 }
+
+
