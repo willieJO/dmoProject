@@ -7,6 +7,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -22,13 +25,13 @@ import br.edu.ifsp.dmo5.alugel.carros.mvp.VeiculoCadastroMVP;
 import br.edu.ifsp.dmo5.alugel.carros.presenter.MainPresenter;
 import br.edu.ifsp.dmo5.alugel.carros.presenter.VeiculoCadastroPresenter;
 
-public class NewCarActivity extends AppCompatActivity implements VeiculoCadastroMVP.View {
+public class NewCarActivity extends AppCompatActivity implements VeiculoCadastroMVP.View, AdapterView.OnItemSelectedListener {
     public EditText marca;
     public EditText modelo;
     public EditText cor;
     public EditText placa;
     public EditText combustivel;
-    public Spinner  spinner;
+    public Spinner spinner;
     public CheckBox ar;
     public CheckBox eletrico;
     public CheckBox porta;
@@ -44,6 +47,10 @@ public class NewCarActivity extends AppCompatActivity implements VeiculoCadastro
         setContentView(R.layout.activity_new_car);
         presenter = new VeiculoCadastroPresenter(this);
         findElement();
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.tipo_combustivel, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
         click();
         setMenu();
     }
@@ -113,5 +120,15 @@ public class NewCarActivity extends AppCompatActivity implements VeiculoCadastro
     @Override
     public void showToast(String mensagem) {
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String text = adapterView.getItemAtPosition(i).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

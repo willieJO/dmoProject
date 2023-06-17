@@ -42,4 +42,13 @@
     <string name="navigation_drawer_close">Fechar</string>
     <string name="tirar_foto">Tirar Foto</string>
     <string name="registrar_carro">Registrar carro</string>
+
+    <string-array name="tipo_combustivel">
+        <item>elétrico</item>
+        <item>gasolina</item>
+        <item>álcool</item>
+        <item>diesel</item>
+        <item>GNV</item>
+        <item>flex</item>
+    </string-array>
 </resources>
