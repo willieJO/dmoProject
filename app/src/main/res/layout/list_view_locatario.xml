@@ -7,7 +7,7 @@
     android:padding="8dp">
 
     <ImageView
-        android:id="@+id/image_car_listitem"
+        android:id="@+id/image_car_listitem_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="48dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_modelo_carro_listitem"
+        android:id="@+id/text_modelo_carro_listitem_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
@@ -28,11 +28,11 @@
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/image_car_listitem"
+        app:layout_constraintStart_toEndOf="@+id/image_car_listitem_r"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_proprietario_listitem"
+        android:id="@+id/text_proprietario_listitem_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
@@ -40,7 +40,7 @@
         android:text="proprietario"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/image_car_listitem"
-        app:layout_constraintTop_toBottomOf="@+id/text_modelo_carro_listitem" />
+        app:layout_constraintStart_toEndOf="@+id/image_car_listitem_r"
+        app:layout_constraintTop_toBottomOf="@+id/text_modelo_carro_listitem_r" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

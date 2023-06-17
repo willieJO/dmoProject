@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class Carro implements Serializable {
     public String id;
+    public String idDonoCarro;
     public String marca;
     public String modelo;
     public String cor;
@@ -20,6 +21,27 @@ public class Carro implements Serializable {
     public String crlve;
     public String cpf;
     public String foto;
+
+    public Carro(){}
+
+    public Carro(String id, String idDonoCarro, String marca, String modelo, String cor, String placa, String tipoCombustivel, String combustivel, String arCondicionado, String eletrico, String porta, String radio, String quilometragem, String crlve, String cpf, String foto) {
+        this.id = id;
+        this.idDonoCarro = idDonoCarro;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cor = cor;
+        this.placa = placa;
+        this.tipoCombustivel = tipoCombustivel;
+        this.combustivel = combustivel;
+        this.arCondicionado = arCondicionado;
+        this.eletrico = eletrico;
+        this.porta = porta;
+        this.radio = radio;
+        this.quilometragem = quilometragem;
+        this.crlve = crlve;
+        this.cpf = cpf;
+        this.foto = foto;
+    }
 
     public String getId() {
         return id;

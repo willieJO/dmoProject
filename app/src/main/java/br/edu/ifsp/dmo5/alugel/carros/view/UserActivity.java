@@ -4,22 +4,33 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
 import br.edu.ifsp.dmo5.alugel.carros.R;
+import br.edu.ifsp.dmo5.alugel.carros.mvp.MainMVP;
+import br.edu.ifsp.dmo5.alugel.carros.mvp.UserMVP;
+import br.edu.ifsp.dmo5.alugel.carros.presenter.MainPresenter;
+import br.edu.ifsp.dmo5.alugel.carros.presenter.UserPresenter;
 
-public class UserActivity extends AppCompatActivity {
+public class UserActivity extends AppCompatActivity implements UserMVP.View {
     private DrawerLayout drawerLayout;
+    private UserMVP.Presenter presenter;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+        recyclerView = findViewById(R.id.recyclerview_carro);
+        presenter = new UserPresenter(this);
         drawerLayout = findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -54,6 +65,12 @@ public class UserActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        presenter.populateList(recyclerView);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
@@ -68,5 +85,25 @@ public class UserActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
+    public void finViewById() {
+
+    }
+
+    @Override
+    public void setOnCLick() {
+
+    }
+
+    @Override
+    public void showToast(String mensagem) {
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
     }
 }
