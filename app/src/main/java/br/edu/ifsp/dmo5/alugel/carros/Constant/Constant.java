@@ -13,6 +13,7 @@ public class Constant {
     public final static String DATABASE_NUMERO = "Numero";
     public final static String DATABASE_BAIRRO = "Bairro";
     public final static String DATABASE_CIDADE = "Cidade";
+    public final static String DATABASE_ALUGADO = "Alugado";
     public final static String DATABASE_ESTADO = "Estado";
     public final static String DATABASE_CEP = "Cep";
     public final static String DATABASE_TELEFONE = "Telefone";
@@ -33,4 +34,10 @@ public class Constant {
     public final static String QUILOMETRAGEM = "Quilometragem";
     public final static String CRLVE = "Crlve";
     public final static String CPF_PROPRIETARIO = "CpfProprietario";
+    public final static String MODELO_CARRO = "Modelo do carro";
+    public final static String DONO_CARRO = "Dono do carro";
+    public final static String DATABASE_CARRO_XUSER = "CarroXUser";
+    public final static String CARRO_ID = "CarroId";
+    public final static String USER_ID = "UserId";
+    public final static String SUCESSO_ALUGUEL = "Aluguel realizado com sucesso";
 }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import java.io.Serializable;
 
 public class Carro implements Serializable {
-    public String id;
+    public int id;
     public String idDonoCarro;
     public String marca;
     public String modelo;
@@ -24,15 +24,14 @@ public class Carro implements Serializable {
 
     public Carro(){}
 
-    public Carro(String id, String idDonoCarro, String marca, String modelo, String cor, String placa, String tipoCombustivel, String combustivel, String arCondicionado, String eletrico, String porta, String radio, String quilometragem, String crlve, String cpf, String foto) {
+    public Carro(int id, String idDonoCarro, String marca, String modelo, String cor, String placa, String tipoCombustivel, String arCondicionado, String eletrico, String porta, String radio, String quilometragem, String crlve, String cpf, String foto) {
         this.id = id;
         this.idDonoCarro = idDonoCarro;
         this.marca = marca;
         this.modelo = modelo;
         this.cor = cor;
         this.placa = placa;
-        this.tipoCombustivel = tipoCombustivel;
-        this.combustivel = combustivel;
+        this.combustivel = tipoCombustivel;
         this.arCondicionado = arCondicionado;
         this.eletrico = eletrico;
         this.porta = porta;
@@ -43,11 +42,11 @@ public class Carro implements Serializable {
         this.foto = foto;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -82,15 +81,6 @@ public class Carro implements Serializable {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-
-    public String getTipoCombustivel() {
-        return tipoCombustivel;
-    }
-
-    public void setTipoCombustivel(String tipoCombustivel) {
-        this.tipoCombustivel = tipoCombustivel;
-    }
-
 
 
     public String getQuilometragem() {

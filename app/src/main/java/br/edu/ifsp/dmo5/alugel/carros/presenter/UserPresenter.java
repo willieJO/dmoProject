@@ -1,16 +1,21 @@
 package br.edu.ifsp.dmo5.alugel.carros.presenter;
 
+import android.content.Intent;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import br.edu.ifsp.dmo5.alugel.carros.Constant.Constant;
 import br.edu.ifsp.dmo5.alugel.carros.dao.CarroSQLite;
 import br.edu.ifsp.dmo5.alugel.carros.dao.ICarroDao;
 import br.edu.ifsp.dmo5.alugel.carros.model.Carro;
 import br.edu.ifsp.dmo5.alugel.carros.model.User;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.PhotoCadastroMVP;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.UserMVP;
+import br.edu.ifsp.dmo5.alugel.carros.view.DetalhesCarroActivity;
 import br.edu.ifsp.dmo5.alugel.carros.view.RecyclerViewItemClickListener;
 import br.edu.ifsp.dmo5.alugel.carros.view.adapter.ItemPocketRecyclerAdapter;
+import br.edu.ifsp.dmo5.alugel.carros.view.new_car_fim;
 
 public class UserPresenter implements UserMVP.Presenter {
 
@@ -36,7 +41,10 @@ public class UserPresenter implements UserMVP.Presenter {
             @Override
             public void onItemClick(int position) {
                 carro = dao.findAll().get(position);
-                //openDetails(article);
+                Intent intent = new Intent(view.getContext(), DetalhesCarroActivity.class);
+                intent.putExtra(Constant.CARRO_MODEL,carro);
+                view.getContext().startActivity(intent);
+
             }
         });
         RecyclerView.LayoutManager layoutManager = new

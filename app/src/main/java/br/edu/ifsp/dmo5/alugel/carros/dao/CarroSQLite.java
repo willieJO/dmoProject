@@ -21,12 +21,6 @@ public class CarroSQLite implements ICarroDao {
         mHelper = new SQLiteHelper(context);
     }
 
-    @Override
-    public boolean salvarCarro(Carro carro) {
-
-        return false;
-    }
-
 
     public static String createTable() {
         String sql = " CREATE TABLE " + Constant.DATABASE_CARRO + "(";
@@ -45,6 +39,7 @@ public class CarroSQLite implements ICarroDao {
         sql += Constant.CRLVE + " TEXT, ";
         sql += Constant.CPF_PROPRIETARIO + " TEXT, ";
         sql += Constant.PHOTO + " TEXT, ";
+        sql += Constant.DATABASE_ALUGADO + " INTEGER DEFAULT 0, ";
         sql += "FOREIGN KEY (" + Constant.ID_DONO_CARRO + ") REFERENCES " + Constant.DATABASE_CARRO + "(" + Constant.DATABASE_ID + "));";
         return sql;
     }
@@ -94,37 +89,36 @@ public class CarroSQLite implements ICarroDao {
                 Constant.CPF_PROPRIETARIO,
                 Constant.PHOTO
         };
-
+        String selection = Constant.DATABASE_ALUGADO + " = ?";
+        String[] selectionArgs = {"0"};
         mDatabase = mHelper.getReadableDatabase();
         cursor = mDatabase.query(
                 Constant.DATABASE_CARRO,
                 projection,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 null,
                 null,
                 null
         );
 
         while (cursor.moveToNext()){
-            String id = cursor.getString(cursor.getColumnIndexOrThrow(Constant.ID_DONO_CARRO));
-            String idDonoCarro = cursor.getString(cursor.getColumnIndexOrThrow(Constant.MARCA));
-            String marca = cursor.getString(cursor.getColumnIndexOrThrow(Constant.MMODELO));
-            String modelo = cursor.getString(cursor.getColumnIndexOrThrow(Constant.COR));
-            String cor = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PLACA));
-            String placa = cursor.getString(cursor.getColumnIndexOrThrow(Constant.TIPO_COMBUSTIVEL));
-            String tipoCombustivel = cursor.getString(cursor.getColumnIndexOrThrow(Constant.AR));
-            String combustivel = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PORTAS));
-            String arCondicionado = cursor.getString(cursor.getColumnIndexOrThrow(Constant.ELETRICO));
-            String eletrico = cursor.getString(cursor.getColumnIndexOrThrow(Constant.RADIO));
-            String porta = cursor.getString(cursor.getColumnIndexOrThrow(Constant.QUILOMETRAGEM));
-            String radio = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CRLVE));
-            String quilometragem = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CPF_PROPRIETARIO));
-            String crlve = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PHOTO));
-            String cpf = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CPF_PROPRIETARIO));
-            String foto = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PHOTO));
-
-            Carro carroInsert = new Carro(id, idDonoCarro, marca, modelo, cor, placa, tipoCombustivel, combustivel, arCondicionado, eletrico, porta, radio, quilometragem, crlve, cpf, foto);
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow(Constant.DATABASE_ID));
+            String idDonoCarro = cursor.getString(cursor.getColumnIndexOrThrow(Constant.ID_DONO_CARRO));
+            String marca = cursor.getString(cursor.getColumnIndexOrThrow(Constant.MARCA));
+            String modelo = cursor.getString(cursor.getColumnIndexOrThrow(Constant.MMODELO));
+            String cor = cursor.getString(cursor.getColumnIndexOrThrow(Constant.COR));
+            String placa = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PLACA));
+            String tipoCombustivel = cursor.getString(cursor.getColumnIndexOrThrow(Constant.TIPO_COMBUSTIVEL));
+            String arCondicionado = cursor.getString(cursor.getColumnIndexOrThrow(Constant.AR));
+            String porta = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PORTAS));
+            String eletrico = cursor.getString(cursor.getColumnIndexOrThrow(Constant.ELETRICO));
+            String radio = cursor.getString(cursor.getColumnIndexOrThrow(Constant.RADIO));
+            String quilometragem = cursor.getString(cursor.getColumnIndexOrThrow(Constant.QUILOMETRAGEM));
+            String crlve = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CRLVE));
+            String CPF_PROPRIETARIO = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CPF_PROPRIETARIO));
+            String FOTO = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PHOTO));
+            Carro carroInsert = new Carro(id,idDonoCarro,marca,modelo,cor,placa,tipoCombustivel,arCondicionado,porta,eletrico,radio,quilometragem,crlve,CPF_PROPRIETARIO,FOTO);
             list.add(carroInsert);
         }
 

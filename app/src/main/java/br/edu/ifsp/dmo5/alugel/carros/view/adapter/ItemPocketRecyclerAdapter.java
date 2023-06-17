@@ -55,6 +55,7 @@ public class ItemPocketRecyclerAdapter  extends RecyclerView.Adapter<ItemPocketR
                 holder.imagemCarro.setImageBitmap(decodedBitmap);
             }
         }
+
     }
 
     @Override
