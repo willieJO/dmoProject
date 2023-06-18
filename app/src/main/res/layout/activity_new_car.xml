@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundcolor"
     tools:context=".view.NewCarActivity">
 
 
@@ -190,6 +191,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/continuar"
+        android:backgroundTint="@color/fontcolor"
         app:layout_constraintEnd_toEndOf="@id/edittext_cpf_proprietario"
         app:layout_constraintStart_toStartOf="@id/edittext_cpf_proprietario"
         app:layout_constraintTop_toTopOf="@id/edittext_cpf_proprietario" />

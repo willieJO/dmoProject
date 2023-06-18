@@ -13,7 +13,7 @@
     <string name="cep">Cep</string>
     <string name="telefone">Telefone</string>
     <string name="email">Email</string>
-    <string name="data_de_nascimento">Data de nascimento</string>
+    <string name="data_de_nascimento">Data de nascimento (dd/mm/yyyy)</string>
     <string name="senha">Senha</string>
     <string name="salvar">Salvar</string>
     <string name="continuar">Continuar</string>
@@ -43,7 +43,15 @@
     <string name="tirar_foto">Tirar Foto</string>
     <string name="registrar_carro">Registrar carro</string>
     <string name="seleciona_a_data_que_vai_alugar">Seleciona a data que vai alugar</string>
-    <string name="termo_de_uso">Ao aceitar esses termos você concorda em... e caso vc alugue o seu carro em ...</string>
+    <string name="termo_de_uso">Ao aceitar esses termos você concorda que ao realizar a locação de um dos veículos registrados em nosso aplicativo o usuário estará sujeito a responder em caso de descumprimento:
+    1. Das normas de trânsito resultando em multas, ferimentos, fatalidades ou quaisquer penalizações que afetem o proprietário do veículo;
+    2. Falsificação de documentos ou informações;
+    3. Não cumprimento do valor monetário referente ao aluguel previamente combinado com o proprietário do veículo.
+
+   E ao cadastrar um veículo em nossa plataforma o proprietário garante a correta apresentação dos documentos e informações solicitados, sendo impossibilitado de realizar cadastro sem qualquer dado obrigatório.
+    O proprietário também será responsabilizado em caso de falsificação de documentos e normas de trânsito descumpridas se comprovado que o veículo fornecido não se encontrava em devido estado de uso.
+
+    </string>
     <string name="leia_me">Aceite nossos termos de uso (Clique aqui para ler)</string>
 
     <string-array name="tipo_combustivel">

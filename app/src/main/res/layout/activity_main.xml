@@ -6,6 +6,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundcolor"
     android:padding="16dp"
     tools:context=".view.MainActivity">
 
@@ -24,8 +25,8 @@
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="#FFC107"
-        fab:menu_colorPressed="#FFA000"
+        fab:menu_colorNormal="@color/fontcolor"
+        fab:menu_colorPressed="@color/fontcolor"
         fab:menu_colorRipple="#FFE082"
         fab:menu_fab_size="normal"
         fab:menu_icon="@drawable/fab_add"
@@ -69,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:backgroundTint="@color/fontcolor"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@id/editTextUsuario"
         app:layout_constraintStart_toStartOf="@id/editTextUsuario"
