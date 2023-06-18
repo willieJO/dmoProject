@@ -5,6 +5,8 @@ import android.content.Intent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Objects;
+
 import br.edu.ifsp.dmo5.alugel.carros.Constant.Constant;
 import br.edu.ifsp.dmo5.alugel.carros.dao.CarroSQLite;
 import br.edu.ifsp.dmo5.alugel.carros.dao.ICarroDao;
@@ -12,6 +14,7 @@ import br.edu.ifsp.dmo5.alugel.carros.model.Carro;
 import br.edu.ifsp.dmo5.alugel.carros.model.User;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.PhotoCadastroMVP;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.UserMVP;
+import br.edu.ifsp.dmo5.alugel.carros.utils.UserSeason;
 import br.edu.ifsp.dmo5.alugel.carros.view.DetalhesCarroActivity;
 import br.edu.ifsp.dmo5.alugel.carros.view.RecyclerViewItemClickListener;
 import br.edu.ifsp.dmo5.alugel.carros.view.adapter.ItemPocketRecyclerAdapter;
@@ -51,5 +54,8 @@ public class UserPresenter implements UserMVP.Presenter {
                 LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        if (Objects.equals(UserSeason.getInstance().getUser().getCnh(), "")) {
+            view.showToast(Constant.MENSAGEM_CNH_ERROR);
+        }
     }
 }

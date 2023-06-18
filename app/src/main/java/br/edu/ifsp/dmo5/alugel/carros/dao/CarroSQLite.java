@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import br.edu.ifsp.dmo5.alugel.carros.Constant.Constant;
 import br.edu.ifsp.dmo5.alugel.carros.model.Carro;
@@ -70,6 +71,10 @@ public class CarroSQLite implements ICarroDao {
 
     @Override
     public List<Carro> findAll() {
+        if (Objects.equals(UserSeason.getInstance().getUser().getCnh(), "")) {
+            List<Carro> carro = new ArrayList<>();
+            return carro;
+        }
         List<Carro> list = new ArrayList<>();
         Cursor cursor;
         String[] projection = {
