@@ -51,7 +51,7 @@ public class MeusCarrosAlugadosPresenter implements MeusCarrosAlugadosMVP.Presen
     @Override
     public void populateList(RecyclerView recyclerView) {
         MeusCarroAlugadoPocketRecyclerAdapter adapter = new
-                MeusCarroAlugadoPocketRecyclerAdapter(view.getContext(), dao.findAll(), this);
+                MeusCarroAlugadoPocketRecyclerAdapter(view.getContext(), dao.findAllById(), this);
         RecyclerView.LayoutManager layoutManager = new
                 LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);

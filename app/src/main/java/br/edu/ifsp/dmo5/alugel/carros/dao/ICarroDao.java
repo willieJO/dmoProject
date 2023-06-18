@@ -9,6 +9,7 @@ public interface ICarroDao {
 
     boolean create(Carro carro);
     List<Carro> findAll();
+    List<Carro> findAllById();
     void excluirCarro(Carro carro);
     void edit(Carro carro);
 }

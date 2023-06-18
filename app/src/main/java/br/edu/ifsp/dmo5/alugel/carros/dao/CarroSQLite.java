@@ -134,6 +134,71 @@ public class CarroSQLite implements ICarroDao {
     }
 
     @Override
+    public List<Carro> findAllById() {
+        if (Objects.equals(UserSeason.getInstance().getUser().getCnh(), "")) {
+            List<Carro> carro = new ArrayList<>();
+            return carro;
+        }
+        List<Carro> list = new ArrayList<>();
+        Cursor cursor;
+        String[] projection = {
+                Constant.DATABASE_ID,
+                Constant.ID_DONO_CARRO,
+                Constant.MARCA,
+                Constant.MMODELO,
+                Constant.COR,
+                Constant.PLACA,
+                Constant.TIPO_COMBUSTIVEL,
+                Constant.AR,
+                Constant.PORTAS,
+                Constant.ELETRICO,
+                Constant.RADIO,
+                Constant.QUILOMETRAGEM,
+                Constant.CRLVE,
+                Constant.CPF_PROPRIETARIO,
+                Constant.PHOTO
+        };
+        int userId = UserSeason.getInstance().getUser().getId();
+        String selection = Constant.ID_DONO_CARRO + " = ? AND " + Constant.DATABASE_ALUGADO + " = ?";
+        String[] selectionArgs = {String.valueOf(userId), "0"};
+        mDatabase = mHelper.getReadableDatabase();
+        cursor = mDatabase.query(
+                Constant.DATABASE_CARRO,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow(Constant.DATABASE_ID));
+            String idDonoCarro = cursor.getString(cursor.getColumnIndexOrThrow(Constant.ID_DONO_CARRO));
+            String marca = cursor.getString(cursor.getColumnIndexOrThrow(Constant.MARCA));
+            String modelo = cursor.getString(cursor.getColumnIndexOrThrow(Constant.MMODELO));
+            String cor = cursor.getString(cursor.getColumnIndexOrThrow(Constant.COR));
+            String placa = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PLACA));
+            String tipoCombustivel = cursor.getString(cursor.getColumnIndexOrThrow(Constant.TIPO_COMBUSTIVEL));
+            String arCondicionado = cursor.getString(cursor.getColumnIndexOrThrow(Constant.AR));
+            String porta = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PORTAS));
+            String eletrico = cursor.getString(cursor.getColumnIndexOrThrow(Constant.ELETRICO));
+            String radio = cursor.getString(cursor.getColumnIndexOrThrow(Constant.RADIO));
+            String quilometragem = cursor.getString(cursor.getColumnIndexOrThrow(Constant.QUILOMETRAGEM));
+            String crlve = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CRLVE));
+            String CPF_PROPRIETARIO = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CPF_PROPRIETARIO));
+            String FOTO = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PHOTO));
+            Carro carroInsert = new Carro(id,idDonoCarro,marca,modelo,cor,placa,tipoCombustivel,arCondicionado,porta,eletrico,radio,quilometragem,crlve,CPF_PROPRIETARIO,FOTO);
+            list.add(carroInsert);
+        }
+
+        cursor.close();
+        mDatabase.close();
+
+        return list;
+    }
+
+    @Override
     public void excluirCarro(Carro carro) {
         mDatabase = mHelper.getWritableDatabase();
         String selection = Constant.DATABASE_ID + " = ?";
