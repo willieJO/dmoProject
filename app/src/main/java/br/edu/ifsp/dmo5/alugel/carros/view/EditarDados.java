@@ -13,11 +13,12 @@ import android.widget.Toast;
 import br.edu.ifsp.dmo5.alugel.carros.R;
 import br.edu.ifsp.dmo5.alugel.carros.model.User;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.CadastroMVP;
-
+import br.edu.ifsp.dmo5.alugel.carros.mvp.EditUserMVP;
 import br.edu.ifsp.dmo5.alugel.carros.presenter.CadastroPresenter;
-import br.edu.ifsp.dmo5.alugel.carros.utils.Criptografia;
+import br.edu.ifsp.dmo5.alugel.carros.presenter.EditUserPresenter;
+import br.edu.ifsp.dmo5.alugel.carros.utils.UserSeason;
 
-public class NewUserActivity extends AppCompatActivity implements CadastroMVP.View {
+public class EditarDados extends AppCompatActivity implements EditUserMVP.View {
 
     EditText editNomeLocador;
     EditText editCnh;
@@ -35,15 +36,35 @@ public class NewUserActivity extends AppCompatActivity implements CadastroMVP.Vi
     EditText editDataNascimento;
     EditText editSenha;
     Button editCadastrar;
-    private CadastroMVP.Presenter presenter;
+    private EditUserMVP.Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
-        presenter = new CadastroPresenter(this);
+        presenter = new EditUserPresenter(this);
         setToolbar();
         finViewById();
         setOnCLick();
+        setDados();
+    }
+
+    public void setDados() {
+        editNomeLocador.setText((UserSeason.getInstance().getUser().getNome()));
+        editCnh.setText(UserSeason.getInstance().getUser().getCnh());
+        editCnhCategora.setText(UserSeason.getInstance().getUser().getCnhCategoria());
+        editDataCnh.setText(UserSeason.getInstance().getUser().getDataCnh());
+        editCpf.setText(UserSeason.getInstance().getUser().getCpf());
+        editLogadouro.setText((UserSeason.getInstance().getUser().getLogadouro()));
+        editNumero.setText(UserSeason.getInstance().getUser().getNumero());
+        editBairro.setText(UserSeason.getInstance().getUser().getBairro());
+        editCidade.setText(UserSeason.getInstance().getUser().getCidade());
+        editEstado.setText(UserSeason.getInstance().getUser().getEstado());
+        editCep.setText(UserSeason.getInstance().getUser().getCep());
+        editTelefone.setText(UserSeason.getInstance().getUser().getTelefone());
+        editEmail.setText(UserSeason.getInstance().getUser().getEmail());
+        editDataNascimento.setText(UserSeason.getInstance().getUser().getDataDeNascimento());
+        editSenha.setText(UserSeason.getInstance().getUser().getSenha());
+
     }
 
     protected void onDestroy() {
@@ -103,9 +124,9 @@ public class NewUserActivity extends AppCompatActivity implements CadastroMVP.Vi
         User user = new User();
         user.setNome(editNomeLocador.getText().toString());
         user.setCnh(editCnh.getText().toString());
+        user.setCnhCategoria(editCnhCategora.getText().toString());
         user.setDataCnh(editDataCnh.getText().toString());
         user.setCpf(editCpf.getText().toString());
-        user.setCnhCategoria(editCnhCategora.getText().toString());
         user.setLogadouro(editLogadouro.getText().toString());
         user.setNumero(editNumero.getText().toString());
         user.setBairro(editBairro.getText().toString());

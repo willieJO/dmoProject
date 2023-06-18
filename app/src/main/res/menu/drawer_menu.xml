@@ -8,7 +8,7 @@
             android:title="Visualizar veiculos alugados" />
         <item
             android:id="@+id/nav_item3"
-            android:title="Configurações" />
+            android:title="Editar meus dados" />
         <item
             android:id="@+id/nav_item4"
             android:title="Sair" />

@@ -34,6 +34,7 @@ public class UserSQLite implements IUserDao {
         sql += Constant.DATABASE_TELEFONE + " TEXT NOT NULL, ";
         sql += Constant.DATABASE_EMAIL + " TEXT NOT NULL, ";
         sql += Constant.DATABASE_DATA_NASCIMENTO + " TEXT NOT NULL, ";
+        sql += Constant.CNH_CATEGORIA + " TEXT NOT NULL, ";
         sql += Constant.DATABASE_SENHA + " TEXT NOT NULL );";
         return sql;
     }
@@ -54,6 +55,7 @@ public class UserSQLite implements IUserDao {
         values.put(Constant.DATABASE_TELEFONE,locador.getTelefone());
         values.put(Constant.DATABASE_EMAIL,locador.getEmail());
         values.put(Constant.DATABASE_DATA_NASCIMENTO,locador.getDataDeNascimento());
+        values.put(Constant.CNH_CATEGORIA,locador.getCnhCategoria());
         values.put(Constant.DATABASE_SENHA,locador.getSenha());
 
         mDatabase = mHelper.getWritableDatabase();
@@ -61,6 +63,36 @@ public class UserSQLite implements IUserDao {
                 .insert(Constant.DATABASE_USER, null, values);
         mDatabase.close();
         return lines == -1 ? false : true;
+    }
+
+    @Override
+    public boolean edit(User locador) {
+        ContentValues values = new ContentValues();
+        values.put(Constant.DATABASE_NOME, locador.getNome());
+        values.put(Constant.DATABASE_CPF, locador.getCpf());
+        values.put(Constant.DATABASE_CNH, locador.getCnh());
+        values.put(Constant.DATABASE_CNH_VALIDADE, locador.getDataCnh());
+        values.put(Constant.DATABASE_LOGADOURO, locador.getLogadouro());
+        values.put(Constant.DATABASE_BAIRRO, locador.getBairro());
+        values.put(Constant.DATABASE_NUMERO, locador.getNumero());
+        values.put(Constant.DATABASE_CIDADE, locador.getCidade());
+        values.put(Constant.DATABASE_ESTADO, locador.getEstado());
+        values.put(Constant.DATABASE_CEP, locador.getCep());
+        values.put(Constant.DATABASE_TELEFONE, locador.getTelefone());
+        values.put(Constant.DATABASE_EMAIL, locador.getEmail());
+        values.put(Constant.DATABASE_DATA_NASCIMENTO, locador.getDataDeNascimento());
+        values.put(Constant.CNH_CATEGORIA, locador.getCnhCategoria());
+        values.put(Constant.DATABASE_SENHA, locador.getSenha());
+        mDatabase = mHelper.getWritableDatabase();
+        int rowsAffected = mDatabase.update(
+                Constant.DATABASE_USER,
+                values,
+                Constant.DATABASE_ID + " = ?",
+                new String[]{String.valueOf(UserSeason.getInstance().getUser().getId())}
+        );
+        UserSeason.getInstance().setUser(locador);
+        mDatabase.close();
+        return rowsAffected > 0;
     }
 
     @SuppressLint("Range")
@@ -81,7 +113,9 @@ public class UserSQLite implements IUserDao {
                 Constant.DATABASE_ESTADO,
                 Constant.DATABASE_CEP,
                 Constant.DATABASE_TELEFONE,
-                Constant.DATABASE_DATA_NASCIMENTO
+                Constant.DATABASE_DATA_NASCIMENTO,
+                Constant.DATABASE_CNH,
+                Constant.CNH_CATEGORIA
         };
         String where = Constant.DATABASE_EMAIL + " like '" + email + "'";
         where += " AND " + Constant.DATABASE_SENHA + " like '" + pass + "'";
@@ -108,7 +142,6 @@ public class UserSQLite implements IUserDao {
                 UserSeason.getInstance().getUser().setDataCnh(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_CNH_VALIDADE)));
                 UserSeason.getInstance().getUser().setLogadouro(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_LOGADOURO)));
                 UserSeason.getInstance().getUser().setBairro(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_BAIRRO)));
-
                 UserSeason.getInstance().getUser().setNumero(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_NUMERO)));
                 UserSeason.getInstance().getUser().setCidade(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_CIDADE)));
                 UserSeason.getInstance().getUser().setEstado(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_ESTADO)));
@@ -116,6 +149,8 @@ public class UserSQLite implements IUserDao {
                 UserSeason.getInstance().getUser().setBairro(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_BAIRRO)));
                 UserSeason.getInstance().getUser().setTelefone(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_TELEFONE)));
                 UserSeason.getInstance().getUser().setDataDeNascimento(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_DATA_NASCIMENTO)));
+                UserSeason.getInstance().getUser().setCnhCategoria(cursor.getString(cursor.getColumnIndex(Constant.CNH_CATEGORIA)));
+                UserSeason.getInstance().getUser().setCnh(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_CNH)));
                 retorno = true;
             }
             cursor.close();

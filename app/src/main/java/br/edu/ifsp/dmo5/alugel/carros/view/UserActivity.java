@@ -54,6 +54,11 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
                             startActivity(intentItem);
                             break;
 
+                        case R.id.nav_item3:
+                            intentItem = new Intent(this, EditarDados.class);
+                            startActivity(intentItem);
+                            break;
+
                         case R.id.nav_item4:
                             intentItem = new Intent(this,MainActivity.class);
                             startActivity(intentItem);

@@ -4,7 +4,7 @@ import android.content.Context;
 
 import br.edu.ifsp.dmo5.alugel.carros.model.User;
 
-public interface CadastroMVP {
+public interface EditUserMVP {
     interface  View {
         void setToolbar();
         void finViewById();

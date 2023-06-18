@@ -18,13 +18,19 @@
         android:theme="@style/Theme.AluguelDeCarros"
         tools:targetApi="31">
         <activity
+            android:name=".view.EditarDados"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.DetalhesCarroActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".view.new_car_fim"
             android:exported="false">
