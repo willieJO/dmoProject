@@ -15,5 +15,6 @@ public interface CadastroMVP {
     interface Presenter {
         void deatach();
         boolean realizarCadastro(User user);
+        void leiame();
     }
 }

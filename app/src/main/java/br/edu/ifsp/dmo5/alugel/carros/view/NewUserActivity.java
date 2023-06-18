@@ -7,7 +7,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import br.edu.ifsp.dmo5.alugel.carros.R;
@@ -35,6 +37,8 @@ public class NewUserActivity extends AppCompatActivity implements CadastroMVP.Vi
     EditText editDataNascimento;
     EditText editSenha;
     Button editCadastrar;
+    TextView textLeiame;
+    CheckBox checkTermos;
     private CadastroMVP.Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +86,18 @@ public class NewUserActivity extends AppCompatActivity implements CadastroMVP.Vi
         editDataNascimento = findViewById(R.id.edittext_data_nasc_locador);
         editSenha = findViewById(R.id.edittext_senha_locador);
         editCadastrar = findViewById(R.id.button_save_locador);
+        textLeiame = findViewById(R.id.leia_me);
+        checkTermos = findViewById(R.id.termos_de_uso);
     }
 
     @Override
     public void setOnCLick() {
         editCadastrar.setOnClickListener(view -> cadastrarUsuario());
+        textLeiame.setOnClickListener(view -> leiame());
+    }
+
+    public void leiame() {
+        presenter.leiame();
     }
 
     @Override

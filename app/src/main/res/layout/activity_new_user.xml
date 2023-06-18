@@ -193,6 +193,25 @@
             android:background="@drawable/edittext_border"
             android:textColor="@color/black" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/termos_de_uso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/leia_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/teal_700"
+                android:text="@string/leia_me" />
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/button_save_locador"
             android:layout_width="match_parent"
