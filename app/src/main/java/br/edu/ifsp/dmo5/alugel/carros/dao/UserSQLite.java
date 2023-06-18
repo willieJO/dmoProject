@@ -70,7 +70,18 @@ public class UserSQLite implements IUserDao {
         String columns[] = new String[]{
                 Constant.DATABASE_ID,
                 Constant.DATABASE_EMAIL,
-                Constant.DATABASE_SENHA
+                Constant.DATABASE_SENHA,
+                Constant.DATABASE_NOME,
+                Constant.DATABASE_CPF,
+                Constant.DATABASE_CNH_VALIDADE,
+                Constant.DATABASE_LOGADOURO,
+                Constant.DATABASE_BAIRRO,
+                Constant.DATABASE_NUMERO,
+                Constant.DATABASE_CIDADE,
+                Constant.DATABASE_ESTADO,
+                Constant.DATABASE_CEP,
+                Constant.DATABASE_TELEFONE,
+                Constant.DATABASE_DATA_NASCIMENTO
         };
         String where = Constant.DATABASE_EMAIL + " like '" + email + "'";
         where += " AND " + Constant.DATABASE_SENHA + " like '" + pass + "'";
@@ -87,7 +98,24 @@ public class UserSQLite implements IUserDao {
             );
 
             if(cursor.moveToNext()){
-                UserSeason.getInstance().setUserId(cursor.getInt(cursor.getColumnIndex(Constant.DATABASE_ID)));
+                User user = new User();
+                UserSeason.getInstance().setUser(user);
+                UserSeason.getInstance().getUser().setId(cursor.getInt(cursor.getColumnIndex(Constant.DATABASE_ID)));
+                UserSeason.getInstance().getUser().setEmail(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_EMAIL)));
+                UserSeason.getInstance().getUser().setSenha(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_SENHA)));
+                UserSeason.getInstance().getUser().setNome(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_NOME)));
+                UserSeason.getInstance().getUser().setCpf(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_CPF)));
+                UserSeason.getInstance().getUser().setDataCnh(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_CNH_VALIDADE)));
+                UserSeason.getInstance().getUser().setLogadouro(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_LOGADOURO)));
+                UserSeason.getInstance().getUser().setBairro(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_BAIRRO)));
+
+                UserSeason.getInstance().getUser().setNumero(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_NUMERO)));
+                UserSeason.getInstance().getUser().setCidade(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_CIDADE)));
+                UserSeason.getInstance().getUser().setEstado(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_ESTADO)));
+                UserSeason.getInstance().getUser().setCep(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_CEP)));
+                UserSeason.getInstance().getUser().setBairro(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_BAIRRO)));
+                UserSeason.getInstance().getUser().setTelefone(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_TELEFONE)));
+                UserSeason.getInstance().getUser().setDataDeNascimento(cursor.getString(cursor.getColumnIndex(Constant.DATABASE_DATA_NASCIMENTO)));
                 retorno = true;
             }
             cursor.close();

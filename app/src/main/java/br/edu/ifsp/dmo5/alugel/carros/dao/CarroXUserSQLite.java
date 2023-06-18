@@ -30,7 +30,7 @@ public class CarroXUserSQLite implements  ICarroXUser{
     @Override
     public void alugar(int id) {
         ContentValues values = new ContentValues();
-        values.put(Constant.USER_ID, UserSeason.getInstance().getUserId());
+        values.put(Constant.USER_ID, UserSeason.getInstance().getUser().getId());
         values.put(Constant.CARRO_ID, id);
         mDatabase = mHelper.getWritableDatabase();
         long lines = mDatabase

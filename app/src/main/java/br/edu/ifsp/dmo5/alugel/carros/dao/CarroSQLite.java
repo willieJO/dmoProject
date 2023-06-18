@@ -47,7 +47,7 @@ public class CarroSQLite implements ICarroDao {
     @Override
     public boolean create(Carro carro) {
         ContentValues values = new ContentValues();
-        values.put( Constant.ID_DONO_CARRO,UserSeason.getInstance().getUserId());
+        values.put( Constant.ID_DONO_CARRO,UserSeason.getInstance().getUser().getId());
         values.put(Constant.MARCA,carro.getMarca());
         values.put(Constant.MMODELO,carro.getMarca());
         values.put(Constant.COR,carro.getCor());

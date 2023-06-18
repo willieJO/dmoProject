@@ -1,6 +1,16 @@
 package br.edu.ifsp.dmo5.alugel.carros.model;
 
 public class User {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String nome;
     private String cnh;
     private String cnhCategoria;
