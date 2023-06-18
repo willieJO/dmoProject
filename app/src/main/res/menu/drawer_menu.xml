@@ -5,7 +5,7 @@
             android:title="Alugar seu véiculo" />
         <item
             android:id="@+id/nav_item2"
-            android:title="Visualizar veiculos alugados" />
+            android:title="Carros que disponibilizei para alugar" />
         <item
             android:id="@+id/nav_item3"
             android:title="Editar meus dados" />

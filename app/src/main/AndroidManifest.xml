@@ -18,6 +18,27 @@
         android:theme="@style/Theme.AluguelDeCarros"
         tools:targetApi="31">
         <activity
+            android:name=".view.edit_car_fim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.EditVeiculoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.MeusCarrosDisponibilizadosParaAlugarActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.LeiaMeActivity"
             android:exported="false">
             <meta-data
