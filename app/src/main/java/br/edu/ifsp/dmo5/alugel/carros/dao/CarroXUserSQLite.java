@@ -23,14 +23,16 @@ public class CarroXUserSQLite implements  ICarroXUser{
         String sql = " CREATE TABLE " + Constant.DATABASE_CARRO_XUSER + "(";
         sql += Constant.DATABASE_ID + " INTEGER PRIMARY KEY, ";
         sql += Constant.CARRO_ID + " INTEGER, ";
+        sql += Constant.DATABASE_DATA + " TEXT, ";
         sql += Constant.USER_ID + " INTEGER ); ";
         return sql;
     }
 
     @Override
-    public void alugar(int id) {
+    public void alugar(int id,String data) {
         ContentValues values = new ContentValues();
         values.put(Constant.USER_ID, UserSeason.getInstance().getUser().getId());
+        values.put(Constant.DATABASE_DATA, data);
         values.put(Constant.CARRO_ID, id);
         mDatabase = mHelper.getWritableDatabase();
         long lines = mDatabase

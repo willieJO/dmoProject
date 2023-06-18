@@ -42,6 +42,7 @@
     <string name="navigation_drawer_close">Fechar</string>
     <string name="tirar_foto">Tirar Foto</string>
     <string name="registrar_carro">Registrar carro</string>
+    <string name="seleciona_a_data_que_vai_alugar">Seleciona a data que vai alugar</string>
 
     <string-array name="tipo_combustivel">
         <item>elétrico</item>

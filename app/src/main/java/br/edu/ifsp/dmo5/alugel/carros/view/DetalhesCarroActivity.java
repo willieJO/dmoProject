@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,9 +12,14 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import br.edu.ifsp.dmo5.alugel.carros.Constant.Constant;
 import br.edu.ifsp.dmo5.alugel.carros.R;
@@ -28,6 +34,9 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
     private TextView modeloCarro;
     private TextView donoCarro;
     private Button alugar;
+    private EditText dataEdit;
+    private SimpleDateFormat dateFormatter;
+
     private CarroDetailsMVP.Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,7 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
         finViewById();
         setOnCLick();
         setDados();
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
     }
 
     @Override
@@ -68,15 +78,36 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
         modeloCarro = findViewById(R.id.text_modelo_carro_);
         donoCarro = findViewById(R.id.text_dono);
         alugar = findViewById(R.id.button_alugar);
+        dataEdit = findViewById(R.id.editTextDate);
     }
 
     @Override
     public void setOnCLick() {
         alugar.setOnClickListener(view -> alugarCarro());
+        dataEdit.setOnClickListener(view -> showDatePickerDialog());
+    }
+
+    private void showDatePickerDialog() {
+        Calendar newCalendar = Calendar.getInstance();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                (view, year, monthOfYear, dayOfMonth) -> {
+                    Calendar selectedCalendar = Calendar.getInstance();
+                    selectedCalendar.set(year, monthOfYear, dayOfMonth);
+
+                    String selectedDate = dateFormatter.format(selectedCalendar.getTime());
+                    dataEdit.setText(selectedDate);
+                },
+                newCalendar.get(Calendar.YEAR),
+                newCalendar.get(Calendar.MONTH),
+                newCalendar.get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.getDatePicker().setMinDate(newCalendar.getTimeInMillis());
+        datePickerDialog.show();
     }
 
     public void alugarCarro() {
-        presenter.alugaCarro(carro.getId());
+        presenter.alugaCarro(carro.getId(),dataEdit.getText().toString());
     }
 
     @Override

@@ -40,5 +40,7 @@ public class Constant {
     public final static String CARRO_ID = "CarroId";
     public final static String USER_ID = "UserId";
     public final static String SUCESSO_ALUGUEL = "Aluguel realizado com sucesso";
+    public final static String ERRO_ALUGUEL = "Selecione uma data para alugar";
     public static final String CNH_CATEGORIA = "CnhCategoria";
+    public static final String DATABASE_DATA = "Data";
 }
