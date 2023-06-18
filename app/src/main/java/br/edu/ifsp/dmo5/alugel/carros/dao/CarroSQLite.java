@@ -132,6 +132,41 @@ public class CarroSQLite implements ICarroDao {
 
         return list;
     }
+
+    @Override
+    public void excluirCarro(Carro carro) {
+        mDatabase = mHelper.getWritableDatabase();
+        String selection = Constant.DATABASE_ID + " = ?";
+        String[] selectionArgs = { String.valueOf(carro.getId()) };
+        mDatabase.delete(Constant.DATABASE_CARRO, selection, selectionArgs);
+        mDatabase.close();
+    }
+
+    @Override
+    public void edit(Carro carro) {
+        ContentValues values = new ContentValues();
+        values.put(Constant.ID_DONO_CARRO, UserSeason.getInstance().getUser().getId());
+        values.put(Constant.MARCA, carro.getMarca());
+        values.put(Constant.MMODELO, carro.getMarca());
+        values.put(Constant.COR, carro.getCor());
+        values.put(Constant.PLACA, carro.getPlaca());
+        values.put(Constant.TIPO_COMBUSTIVEL, carro.getCombustivel());
+        values.put(Constant.AR, carro.getArCondicionado());
+        values.put(Constant.PORTAS, carro.getPorta());
+        values.put(Constant.ELETRICO, carro.getEletrico());
+        values.put(Constant.RADIO, carro.getRadio());
+        values.put(Constant.QUILOMETRAGEM, carro.getQuilometragem());
+        values.put(Constant.CRLVE, carro.getCrlve());
+        values.put(Constant.CPF_PROPRIETARIO, carro.getCpf());
+        values.put(Constant.PHOTO, carro.getFoto());
+
+        String whereClause = Constant.DATABASE_ID + " = ?";
+        String[] whereArgs = {String.valueOf(carro.getId())};
+
+        mDatabase = mHelper.getWritableDatabase();
+        mDatabase.update(Constant.DATABASE_CARRO, values, whereClause, whereArgs);
+        mDatabase.close();
+    }
 }
 
 

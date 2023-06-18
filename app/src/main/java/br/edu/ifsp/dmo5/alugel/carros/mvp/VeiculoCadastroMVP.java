@@ -14,7 +14,7 @@ public interface VeiculoCadastroMVP {
         Bundle getBundle();
         void showToast(String mensagem);
     }
-    interface  Presenter {
+    interface Presenter {
         void continuar(Carro carro);
         void deatach();
     }

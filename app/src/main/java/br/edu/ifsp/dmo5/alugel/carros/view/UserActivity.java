@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -19,6 +21,7 @@ import br.edu.ifsp.dmo5.alugel.carros.mvp.MainMVP;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.UserMVP;
 import br.edu.ifsp.dmo5.alugel.carros.presenter.MainPresenter;
 import br.edu.ifsp.dmo5.alugel.carros.presenter.UserPresenter;
+import br.edu.ifsp.dmo5.alugel.carros.utils.UserSeason;
 
 public class UserActivity extends AppCompatActivity implements UserMVP.View {
     private DrawerLayout drawerLayout;
@@ -29,7 +32,7 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        recyclerView = findViewById(R.id.recyclerview_carro);
+        finViewById();
         presenter = new UserPresenter(this);
         drawerLayout = findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(
@@ -40,9 +43,7 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(
                 menuItem -> {
@@ -51,6 +52,11 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
                     switch (itemId) {
                         case R.id.nav_item1:
                             intentItem = new Intent(this, NewCarActivity.class);
+                            startActivity(intentItem);
+                            break;
+
+                        case R.id.nav_item2:
+                            intentItem = new Intent(this, MeusCarrosDisponibilizadosParaAlugarActivity.class);
                             startActivity(intentItem);
                             break;
 
@@ -67,6 +73,7 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
                     drawerLayout.closeDrawer(GravityCompat.START);
                     return true;
                 });
+
     }
 
     @Override
@@ -99,7 +106,7 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
 
     @Override
     public void finViewById() {
-
+        recyclerView = findViewById(R.id.recyclerview_carro);
     }
 
     @Override

@@ -9,4 +9,6 @@ public interface ICarroDao {
 
     boolean create(Carro carro);
     List<Carro> findAll();
+    void excluirCarro(Carro carro);
+    void edit(Carro carro);
 }
