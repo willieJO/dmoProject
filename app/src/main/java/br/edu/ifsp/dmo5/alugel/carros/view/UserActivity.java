@@ -69,6 +69,10 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
                             intentItem = new Intent(this,MainActivity.class);
                             startActivity(intentItem);
                             break;
+                        case R.id.nav_item5:
+                            intentItem = new Intent(this,CarrosQueAlugueiActivity.class);
+                            startActivity(intentItem);
+                            break;
                     }
                     drawerLayout.closeDrawer(GravityCompat.START);
                     return true;

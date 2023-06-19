@@ -40,6 +40,7 @@ public class CarroSQLite implements ICarroDao {
         sql += Constant.CRLVE + " TEXT, ";
         sql += Constant.CPF_PROPRIETARIO + " TEXT, ";
         sql += Constant.PHOTO + " TEXT, ";
+        sql += Constant.ACTIVE + " INTEGER DEFAULT 1, ";
         sql += Constant.DATABASE_ALUGADO + " INTEGER DEFAULT 0, ";
         sql += "FOREIGN KEY (" + Constant.ID_DONO_CARRO + ") REFERENCES " + Constant.DATABASE_CARRO + "(" + Constant.DATABASE_ID + "));";
         return sql;
@@ -94,8 +95,8 @@ public class CarroSQLite implements ICarroDao {
                 Constant.CPF_PROPRIETARIO,
                 Constant.PHOTO
         };
-        String selection = Constant.DATABASE_ALUGADO + " = ?";
-        String[] selectionArgs = {"0"};
+        String selection = Constant.DATABASE_ALUGADO + " = ? AND " + Constant.ACTIVE + " = ?";
+        String[] selectionArgs = {"0", "1"};
         mDatabase = mHelper.getReadableDatabase();
         cursor = mDatabase.query(
                 Constant.DATABASE_CARRO,
@@ -159,8 +160,8 @@ public class CarroSQLite implements ICarroDao {
                 Constant.PHOTO
         };
         int userId = UserSeason.getInstance().getUser().getId();
-        String selection = Constant.ID_DONO_CARRO + " = ? AND " + Constant.DATABASE_ALUGADO + " = ?";
-        String[] selectionArgs = {String.valueOf(userId), "0"};
+        String selection = Constant.ID_DONO_CARRO + " = ? AND " + Constant.DATABASE_ALUGADO + " = ? AND " + Constant.ACTIVE + " = ?";
+        String[] selectionArgs = {String.valueOf(userId), "0", "1"};
         mDatabase = mHelper.getReadableDatabase();
         cursor = mDatabase.query(
                 Constant.DATABASE_CARRO,
@@ -203,7 +204,9 @@ public class CarroSQLite implements ICarroDao {
         mDatabase = mHelper.getWritableDatabase();
         String selection = Constant.DATABASE_ID + " = ?";
         String[] selectionArgs = { String.valueOf(carro.getId()) };
-        mDatabase.delete(Constant.DATABASE_CARRO, selection, selectionArgs);
+        ContentValues values = new ContentValues();
+        values.put(Constant.ACTIVE, 0);
+        mDatabase.update(Constant.DATABASE_CARRO, values, selection, selectionArgs);
         mDatabase.close();
     }
 

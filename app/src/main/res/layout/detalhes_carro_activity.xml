@@ -6,6 +6,19 @@
     android:layout_height="match_parent">
 
 
+    <EditText
+        android:id="@+id/editDataFim"
+        android:layout_width="259dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:hint="dd/MM/yyyy"
+        android:inputType="date"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDataFim" />
+
     <ImageView
         android:id="@+id/image_car"
         android:layout_width="wrap_content"
@@ -62,14 +75,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dono" />
 
+    <TextView
+        android:id="@+id/textDataFim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/seleciona_a_data_que_vai_entregar"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="259dp"
         android:layout_height="42dp"
         android:layout_marginTop="100dp"
-        android:textAlignment="center"
         android:hint="dd/MM/yyyy"
         android:inputType="date"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dono" />
@@ -78,7 +103,7 @@
         android:id="@+id/button_alugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="312dp"
+        android:layout_marginTop="448dp"
         android:text="Alugar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
