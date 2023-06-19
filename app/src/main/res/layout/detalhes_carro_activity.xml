@@ -7,19 +7,6 @@
     android:layout_height="match_parent">
 
 
-    <EditText
-        android:id="@+id/editDataFim"
-        android:layout_width="259dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="32dp"
-        android:hint="dd/MM/yyyy"
-        android:inputType="date"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDataFim" />
-
     <ImageView
         android:id="@+id/image_car"
         android:layout_width="wrap_content"
@@ -76,31 +63,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dono" />
 
-    <TextView
-        android:id="@+id/textDataFim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="@string/seleciona_a_data_que_vai_entregar"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
-
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="259dp"
         android:layout_height="42dp"
         android:layout_marginTop="100dp"
-<<<<<<< HEAD
-        android:hint="dd/MM/yyyy"
-=======
         android:textAlignment="center"
         android:hint="DD/MM/YYYY"
->>>>>>> e364112f9cd8f70a29787a616f9480347822f0d4
         android:inputType="date"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dono" />
@@ -116,5 +86,30 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_car" />
+
+    <TextView
+        android:id="@+id/textDataFim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/seleciona_a_data_que_vai_entregar"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+
+    <EditText
+        android:id="@+id/editDataFim"
+        android:layout_width="259dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:hint="dd/MM/yyyy"
+        android:inputType="date"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDataFim" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
