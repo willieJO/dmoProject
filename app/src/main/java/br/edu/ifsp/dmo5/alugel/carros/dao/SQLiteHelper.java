@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class SQLiteHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "project.db";
-    public static final int DATABASE_VERSION = 11;
+    public static final int DATABASE_VERSION = 13;
 
     public SQLiteHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -16,9 +16,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = UserSQLite.createTable();
-        sql += CarroSQLite.createTable();
-        sql += CarroXUserSQLite.createTable();
         db.execSQL(sql);
+        sql = CarroSQLite.createTable();
+        db.execSQL(sql);
+        sql = CarroXUserSQLite.createTable();
+        db.execSQL(sql);
+
     }
 
     @Override
