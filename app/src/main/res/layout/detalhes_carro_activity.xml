@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/backgroundcolor"
     android:layout_height="match_parent">
 
 
@@ -92,7 +93,12 @@
         android:layout_width="259dp"
         android:layout_height="42dp"
         android:layout_marginTop="100dp"
+<<<<<<< HEAD
         android:hint="dd/MM/yyyy"
+=======
+        android:textAlignment="center"
+        android:hint="DD/MM/YYYY"
+>>>>>>> e364112f9cd8f70a29787a616f9480347822f0d4
         android:inputType="date"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="448dp"
         android:text="Alugar"
+        android:backgroundTint="@color/fontcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

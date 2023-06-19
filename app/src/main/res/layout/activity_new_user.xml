@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
+    android:background="@color/backgroundcolor"
     tools:context=".view.NewUserActivity">
 
     <LinearLayout
@@ -68,7 +69,7 @@
             android:background="@drawable/edittext_border"
             android:layout_marginTop="24dp"
             android:hint="@string/cpf"
-            android:inputType="text"
+            android:inputType="number"
             android:padding="8dp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
@@ -139,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/cep"
-            android:inputType="text"
+            android:inputType="number"
             android:padding="8dp"
             android:background="@drawable/edittext_border"
             android:textAlignment="center"
@@ -207,7 +208,7 @@
                 android:id="@+id/leia_me"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/teal_700"
+                android:textColor="@color/black"
                 android:text="@string/leia_me" />
 
         </LinearLayout>
@@ -216,6 +217,7 @@
             android:id="@+id/button_save_locador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/fontcolor"
             android:layout_marginTop="32dp"
             android:text="@string/salvar" />
 

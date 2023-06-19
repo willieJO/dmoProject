@@ -44,6 +44,7 @@ public class UserSQLite implements IUserDao {
         ContentValues values = new ContentValues();
         values.put(Constant.DATABASE_NOME,locador.getNome());
         values.put(Constant.DATABASE_CPF,locador.getCpf());
+        values.put(Constant.CNH_CATEGORIA,locador.getCnhCategoria());
         values.put(Constant.DATABASE_CNH,locador.getCnh());
         values.put(Constant.DATABASE_CNH_VALIDADE,locador.getDataCnh());
         values.put(Constant.DATABASE_LOGADOURO,locador.getLogadouro());
@@ -55,7 +56,7 @@ public class UserSQLite implements IUserDao {
         values.put(Constant.DATABASE_TELEFONE,locador.getTelefone());
         values.put(Constant.DATABASE_EMAIL,locador.getEmail());
         values.put(Constant.DATABASE_DATA_NASCIMENTO,locador.getDataDeNascimento());
-        values.put(Constant.CNH_CATEGORIA,locador.getCnhCategoria());
+
         values.put(Constant.DATABASE_SENHA,locador.getSenha());
 
         mDatabase = mHelper.getWritableDatabase();
