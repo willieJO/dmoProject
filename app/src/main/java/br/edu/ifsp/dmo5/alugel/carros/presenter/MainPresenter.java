@@ -7,7 +7,6 @@ import br.edu.ifsp.dmo5.alugel.carros.dao.UserSQLite;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.MainMVP;
 import br.edu.ifsp.dmo5.alugel.carros.utils.Criptografia;
 import br.edu.ifsp.dmo5.alugel.carros.view.NewUserActivity;
-import br.edu.ifsp.dmo5.alugel.carros.view.NewLocatarioActivity;
 import br.edu.ifsp.dmo5.alugel.carros.view.UserActivity;
 
 public class MainPresenter  implements MainMVP.Presenter {

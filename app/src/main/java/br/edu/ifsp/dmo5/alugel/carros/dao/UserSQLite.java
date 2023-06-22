@@ -35,7 +35,7 @@ public class UserSQLite implements IUserDao {
         sql += Constant.DATABASE_EMAIL + " TEXT NOT NULL, ";
         sql += Constant.DATABASE_DATA_NASCIMENTO + " TEXT NOT NULL, ";
         sql += Constant.CNH_CATEGORIA + " TEXT NOT NULL, ";
-        sql += Constant.DATABASE_SENHA + " TEXT NOT NULL );";
+        sql += Constant.DATABASE_SENHA + " TEXT NOT NULL ); ";
         return sql;
     }
 

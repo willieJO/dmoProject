@@ -27,12 +27,12 @@ public class DetailsCarroPresenter implements CarroDetailsMVP.Presenter {
     }
 
     @Override
-    public void alugaCarro(int id, String data) {
-        if (data.equals("")) {
+    public void alugaCarro(int id, String data,String dataFim) {
+        if (data.equals("") || dataFim.equals("")) {
             view.showToast(Constant.ERRO_ALUGUEL);
             return;
         }
-        dao.alugar(id,data);
+        dao.alugar(id,data,dataFim);
         view.showToast(Constant.SUCESSO_ALUGUEL);
         Intent intent = new Intent(view.getContext(), UserActivity.class);
         view.getContext().startActivity(intent);

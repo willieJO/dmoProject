@@ -36,6 +36,7 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
     private Button alugar;
     private EditText dataEdit;
     private SimpleDateFormat dateFormatter;
+    private EditText dataFimEdit;
 
     private CarroDetailsMVP.Presenter presenter;
     @Override
@@ -79,15 +80,17 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
         donoCarro = findViewById(R.id.text_dono);
         alugar = findViewById(R.id.button_alugar);
         dataEdit = findViewById(R.id.editTextDate);
+        dataFimEdit = findViewById(R.id.editDataFim);
     }
 
     @Override
     public void setOnCLick() {
         alugar.setOnClickListener(view -> alugarCarro());
-        dataEdit.setOnClickListener(view -> showDatePickerDialog());
+        dataEdit.setOnClickListener(view -> showDatePickerDialog(dataEdit));
+        dataFimEdit.setOnClickListener(view -> showDatePickerDialog(dataFimEdit));
     }
 
-    private void showDatePickerDialog() {
+    private void showDatePickerDialog(EditText edit) {
         Calendar newCalendar = Calendar.getInstance();
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
@@ -96,7 +99,7 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
                     selectedCalendar.set(year, monthOfYear, dayOfMonth);
 
                     String selectedDate = dateFormatter.format(selectedCalendar.getTime());
-                    dataEdit.setText(selectedDate);
+                    edit.setText(selectedDate);
                 },
                 newCalendar.get(Calendar.YEAR),
                 newCalendar.get(Calendar.MONTH),
@@ -107,7 +110,7 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
     }
 
     public void alugarCarro() {
-        presenter.alugaCarro(carro.getId(),dataEdit.getText().toString());
+        presenter.alugaCarro(carro.getId(),dataEdit.getText().toString(),dataFimEdit.getText().toString());
     }
 
     @Override

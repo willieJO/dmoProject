@@ -8,7 +8,7 @@
     android:padding="8dp">
 
     <ImageView
-        android:id="@+id/meus_carros_alugados_imagem"
+        android:id="@+id/meus_carros_alugados_imagem_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="48dp"
@@ -23,7 +23,8 @@
         android:id="@+id/texto_modelo_carro_meus_carros_alugado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="68dp"
         android:text="modelo do carro"
         android:textAllCaps="true"
         android:textColor="@color/black"
@@ -33,26 +34,29 @@
         app:layout_constraintStart_toEndOf="@+id/meus_carros_alugados_imagem"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/editar_carro"
+    <Button
+        android:id="@+id/entregar_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp"
+        android:text="Entregar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meus_carros_alugados_imagem"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:layout_constraintEnd_toStartOf="@+id/cancelar_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.789" />
 
-    <ImageView
-        android:id="@+id/excluir_carro"
+    <Button
+        android:id="@+id/cancelar_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginEnd="4dp"
+        android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editar_carro"
-        app:layout_constraintTop_toBottomOf="@+id/meus_carros_alugados_imagem"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_delete" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintStart_toEndOf="@+id/meus_carros_alugados_imagem"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.789" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

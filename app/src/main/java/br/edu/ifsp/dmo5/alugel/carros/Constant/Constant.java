@@ -8,6 +8,7 @@ public class Constant {
     public final static String DATABASE_CPF = "Cpf";
     public final static String DATABASE_CNH = "Cnh";
     public final static String PHOTO = "Foto";
+    public final static String ACTIVE = "IsActive";
     public final static String DATABASE_CNH_VALIDADE = "CnhValidade";
     public final static String DATABASE_LOGADOURO = "Logadouro";
     public final static String DATABASE_NUMERO = "Numero";
@@ -43,5 +44,7 @@ public class Constant {
     public final static String ERRO_ALUGUEL = "Selecione uma data para alugar";
     public static final String CNH_CATEGORIA = "CnhCategoria";
     public static final String DATABASE_DATA = "Data";
+    public static final String DATABASE_DATA_FIM = "DataFim";
+    public static final String DATABASE_CARRO_ENTREGUE= "CarroEntregue";
     public static final String MENSAGEM_CNH_ERROR = "Para acessar os carros apra alugar por favor coloque os dados da CNH";
 }
