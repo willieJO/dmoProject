@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import br.edu.ifsp.dmo5.alugel.carros.Constant.Constant;
 import br.edu.ifsp.dmo5.alugel.carros.R;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.MainMVP;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.UserMVP;
@@ -66,6 +68,7 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
                             break;
 
                         case R.id.nav_item4:
+                            deslogar();
                             intentItem = new Intent(this,MainActivity.class);
                             startActivity(intentItem);
                             break;
@@ -101,6 +104,14 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
         } else {
             super.onBackPressed();
         }
+    }
+    public void deslogar() {
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.USER_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(Constant.USER_ID);
+        editor.remove(Constant.DATABASE_EMAIL);
+        editor.remove(Constant.DATABASE_SENHA);
+        editor.apply();
     }
 
     @Override

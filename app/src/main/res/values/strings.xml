@@ -34,6 +34,7 @@
     <string name="quilometragem">Quilometragem</string>
     <string name="crlv_e">CRLV-E</string>
     <string name="cpf_propriet_rio">CPF proprietário</string>
+    <string name="Registro">Registrar</string>
     <string name="Registro_Locador">Registrar Locador</string>
     <string name="Registro_Locatario">Registrar Locatário</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -53,6 +54,7 @@
     O proprietário também será responsabilizado em caso de falsificação de documentos e normas de trânsito descumpridas se comprovado que o veículo fornecido não se encontrava em devido estado de uso.
     </string>
     <string name="leia_me">Aceite nossos termos de uso (Clique aqui para ler)</string>
+    <string name="preco">Preço por dia</string>
 
     <string-array name="tipo_combustivel">
         <item>elétrico</item>

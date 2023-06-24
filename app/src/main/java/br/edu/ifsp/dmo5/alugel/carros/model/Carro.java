@@ -22,9 +22,19 @@ public class Carro implements Serializable {
     public String cpf;
     public String foto;
 
+    public String getPreço() {
+        return preço;
+    }
+
+    public void setPreço(String preço) {
+        this.preço = preço;
+    }
+
+    public String preço;
+
     public Carro(){}
 
-    public Carro(int id, String idDonoCarro, String marca, String modelo, String cor, String placa, String tipoCombustivel, String arCondicionado, String eletrico, String porta, String radio, String quilometragem, String crlve, String cpf, String foto) {
+    public Carro(int id, String idDonoCarro, String marca, String modelo, String cor, String placa, String tipoCombustivel, String arCondicionado, String eletrico, String porta, String radio, String quilometragem, String crlve, String cpf, String foto, String preco) {
         this.id = id;
         this.idDonoCarro = idDonoCarro;
         this.marca = marca;

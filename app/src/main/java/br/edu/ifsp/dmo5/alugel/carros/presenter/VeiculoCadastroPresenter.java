@@ -19,6 +19,17 @@ public class VeiculoCadastroPresenter implements VeiculoCadastroMVP.Presenter {
 
     @Override
     public void continuar(Carro carro) {
+        if (carro.getPreço().equals("") ||
+        carro.getMarca().equals("") ||
+        carro.getModelo().equals("") ||
+        carro.getCombustivel().equals("") ||
+        carro.getPlaca().equals("") ||
+        carro.getQuilometragem().equals("") ||
+        carro.getCrlve().equals("") ||
+        carro.getCpf().equals("")) {
+            view.showToast("Preencha todos os campos");
+            return;
+        }
         Intent intent = new Intent(view.getContext(), new_car_fim.class);
         intent.putExtra(Constant.CARRO_MODEL,carro);
         view.getContext().startActivity(intent);

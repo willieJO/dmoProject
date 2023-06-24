@@ -39,6 +39,7 @@ public class CarroSQLite implements ICarroDao {
         sql += Constant.QUILOMETRAGEM + " TEXT, ";
         sql += Constant.CRLVE + " TEXT, ";
         sql += Constant.CPF_PROPRIETARIO + " TEXT, ";
+        sql += Constant.PRECO_POR_DIA + " TEXT, ";
         sql += Constant.PHOTO + " TEXT, ";
         sql += Constant.ACTIVE + " INTEGER DEFAULT 1, ";
         sql += Constant.DATABASE_ALUGADO + " INTEGER DEFAULT 0, ";
@@ -93,7 +94,8 @@ public class CarroSQLite implements ICarroDao {
                 Constant.QUILOMETRAGEM,
                 Constant.CRLVE,
                 Constant.CPF_PROPRIETARIO,
-                Constant.PHOTO
+                Constant.PHOTO,
+                Constant.PRECO_POR_DIA
         };
         String selection = Constant.DATABASE_ALUGADO + " = ? AND " + Constant.ACTIVE + " = ?";
         String[] selectionArgs = {"0", "1"};
@@ -124,7 +126,8 @@ public class CarroSQLite implements ICarroDao {
             String crlve = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CRLVE));
             String CPF_PROPRIETARIO = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CPF_PROPRIETARIO));
             String FOTO = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PHOTO));
-            Carro carroInsert = new Carro(id,idDonoCarro,marca,modelo,cor,placa,tipoCombustivel,arCondicionado,porta,eletrico,radio,quilometragem,crlve,CPF_PROPRIETARIO,FOTO);
+            String preco = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PRECO_POR_DIA));
+            Carro carroInsert = new Carro(id,idDonoCarro,marca,modelo,cor,placa,tipoCombustivel,arCondicionado,porta,eletrico,radio,quilometragem,crlve,CPF_PROPRIETARIO,FOTO, preco);
             list.add(carroInsert);
         }
 
@@ -157,7 +160,8 @@ public class CarroSQLite implements ICarroDao {
                 Constant.QUILOMETRAGEM,
                 Constant.CRLVE,
                 Constant.CPF_PROPRIETARIO,
-                Constant.PHOTO
+                Constant.PHOTO,
+                Constant.PRECO_POR_DIA
         };
         int userId = UserSeason.getInstance().getUser().getId();
         String selection = Constant.ID_DONO_CARRO + " = ? AND " + Constant.DATABASE_ALUGADO + " = ? AND " + Constant.ACTIVE + " = ?";
@@ -189,7 +193,8 @@ public class CarroSQLite implements ICarroDao {
             String crlve = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CRLVE));
             String CPF_PROPRIETARIO = cursor.getString(cursor.getColumnIndexOrThrow(Constant.CPF_PROPRIETARIO));
             String FOTO = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PHOTO));
-            Carro carroInsert = new Carro(id,idDonoCarro,marca,modelo,cor,placa,tipoCombustivel,arCondicionado,porta,eletrico,radio,quilometragem,crlve,CPF_PROPRIETARIO,FOTO);
+            String preco = cursor.getString(cursor.getColumnIndexOrThrow(Constant.PRECO_POR_DIA));
+            Carro carroInsert = new Carro(id,idDonoCarro,marca,modelo,cor,placa,tipoCombustivel,arCondicionado,porta,eletrico,radio,quilometragem,crlve,CPF_PROPRIETARIO,FOTO,preco);
             list.add(carroInsert);
         }
 
@@ -227,6 +232,7 @@ public class CarroSQLite implements ICarroDao {
         values.put(Constant.CRLVE, carro.getCrlve());
         values.put(Constant.CPF_PROPRIETARIO, carro.getCpf());
         values.put(Constant.PHOTO, carro.getFoto());
+        values.put(Constant.PRECO_POR_DIA, carro.getPreço());
 
         String whereClause = Constant.DATABASE_ID + " = ?";
         String[] whereArgs = {String.valueOf(carro.getId())};

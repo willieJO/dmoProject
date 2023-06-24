@@ -111,6 +111,10 @@ public class NewUserActivity extends AppCompatActivity implements CadastroMVP.Vi
     }
 
     public void cadastrarUsuario() {
+        if (!checkTermos.isChecked()) {
+            this.showToast("E necessario concorda com os termos");
+            return;
+        }
         User user = new User();
         user.setNome(editNomeLocador.getText().toString());
         user.setCnh(editCnh.getText().toString());
@@ -127,7 +131,8 @@ public class NewUserActivity extends AppCompatActivity implements CadastroMVP.Vi
         user.setEmail(editEmail.getText().toString());
         user.setDataDeNascimento(editDataNascimento.getText().toString());
         user.setSenha(editSenha.getText().toString());
-        presenter.realizarCadastro(user);
-        finish();
+        if (presenter.realizarCadastro(user)) {
+            finish();
+        }
     }
 }

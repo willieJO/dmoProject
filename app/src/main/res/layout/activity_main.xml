@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_float_people"
-            fab:fab_label="@string/Registro_Locador" />
+            fab:fab_label="@string/Registro" />
 
     </com.github.clans.fab.FloatingActionMenu>
 

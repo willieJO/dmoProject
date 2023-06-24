@@ -190,16 +190,33 @@ tools:context=".view.NewCarActivity">
         app:layout_constraintStart_toStartOf="@id/edittext_crlve"
         app:layout_constraintTop_toTopOf="@id/edittext_crlve" />
 
+    <EditText
+        android:id="@+id/edittext_valor_por_dia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/edittext_border"
+        android:hint="@string/preco"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/edittext_crlve"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/edittext_crlve"
+        app:layout_constraintTop_toTopOf="@id/edittext_crlve" />
+
     <Button
         android:id="@+id/button_salvar_carro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/continuar"
+        android:layout_marginTop="44dp"
         android:backgroundTint="@color/fontcolor"
-        app:layout_constraintEnd_toEndOf="@id/edittext_cpf_proprietario"
-        app:layout_constraintStart_toStartOf="@id/edittext_cpf_proprietario"
-        app:layout_constraintTop_toTopOf="@id/edittext_cpf_proprietario" />
+        android:text="@string/continuar"
+        app:layout_constraintEnd_toEndOf="@id/edittext_valor_por_dia"
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="@id/edittext_valor_por_dia"
+        app:layout_constraintTop_toTopOf="@id/edittext_valor_por_dia" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

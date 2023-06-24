@@ -35,6 +35,7 @@ public class Constant {
     public final static String QUILOMETRAGEM = "Quilometragem";
     public final static String CRLVE = "Crlve";
     public final static String CPF_PROPRIETARIO = "CpfProprietario";
+    public final static String PRECO_POR_DIA = "PrecoPorDia";
     public final static String MODELO_CARRO = "Modelo do carro";
     public final static String DONO_CARRO = "Dono do carro";
     public final static String DATABASE_CARRO_XUSER = "CarroXUser";
@@ -47,4 +48,6 @@ public class Constant {
     public static final String DATABASE_DATA_FIM = "DataFim";
     public static final String DATABASE_CARRO_ENTREGUE= "CarroEntregue";
     public static final String MENSAGEM_CNH_ERROR = "Para acessar os carros apra alugar por favor coloque os dados da CNH";
+    public static final String USER_PREFERENCES = "UserManterConectado";
+
 }

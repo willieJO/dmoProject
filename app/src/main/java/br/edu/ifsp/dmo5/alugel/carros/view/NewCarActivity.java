@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class NewCarActivity extends AppCompatActivity implements VeiculoCadastro
     public EditText quilometragem;
     public EditText crlve;
     public EditText cpf;
+    public EditText valorPorDia;
     public Button continuar;
     private VeiculoCadastroMVP.Presenter presenter;
     @Override
@@ -86,6 +88,7 @@ public class NewCarActivity extends AppCompatActivity implements VeiculoCadastro
         quilometragem = findViewById(R.id.edittext_quilometragem);
         crlve = findViewById(R.id.edittext_crlve);
         cpf = findViewById(R.id.edittext_cpf_proprietario);
+        valorPorDia = findViewById(R.id.edittext_valor_por_dia);
         continuar = findViewById(R.id.button_salvar_carro);
     }
 
@@ -113,6 +116,7 @@ public class NewCarActivity extends AppCompatActivity implements VeiculoCadastro
         carro.setCrlve(crlve.getText().toString());
         carro.setCpf(cpf.getText().toString());
         carro.setCombustivel(spinner.getSelectedItem().toString());
+        carro.setPreço(valorPorDia.getText().toString());
         presenter.continuar(carro);
     }
 

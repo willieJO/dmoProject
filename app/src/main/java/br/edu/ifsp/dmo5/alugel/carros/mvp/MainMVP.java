@@ -11,7 +11,7 @@ public interface MainMVP {
     }
     interface Presenter {
         void deatach();
-        void realizarLogin(String email, String pass);
+        void realizarLogin(String email, String pass, boolean manterConectado);
         void openCadastro();
     }
 }
