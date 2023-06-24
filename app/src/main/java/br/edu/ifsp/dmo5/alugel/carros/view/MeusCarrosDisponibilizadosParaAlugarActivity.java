@@ -66,4 +66,9 @@ public class MeusCarrosDisponibilizadosParaAlugarActivity extends AppCompatActiv
     public void setMenu() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+    @Override
+    protected void onDestroy() {
+        presenter.deatach();
+        super.onDestroy();
+    }
 }

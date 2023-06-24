@@ -128,7 +128,11 @@ public class UserActivity extends AppCompatActivity implements UserMVP.View {
     public void setOnCLick() {
 
     }
-
+    @Override
+    protected void onDestroy() {
+        presenter.deatach();
+        super.onDestroy();
+    }
     @Override
     public void showToast(String mensagem) {
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();

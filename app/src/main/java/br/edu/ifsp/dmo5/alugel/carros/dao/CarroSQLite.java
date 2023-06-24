@@ -64,6 +64,7 @@ public class CarroSQLite implements ICarroDao {
         values.put(Constant.CRLVE,carro.getCrlve());
         values.put(Constant.CPF_PROPRIETARIO,carro.getCpf());
         values.put(Constant.PHOTO,carro.getFoto());
+        values.put(Constant.PRECO_POR_DIA, carro.getPreço());
         mDatabase = mHelper.getWritableDatabase();
         long lines = mDatabase
                 .insert(Constant.DATABASE_CARRO, null, values);
@@ -97,8 +98,9 @@ public class CarroSQLite implements ICarroDao {
                 Constant.PHOTO,
                 Constant.PRECO_POR_DIA
         };
-        String selection = Constant.DATABASE_ALUGADO + " = ? AND " + Constant.ACTIVE + " = ?";
-        String[] selectionArgs = {"0", "1"};
+
+        String selection = Constant.DATABASE_ALUGADO + " = ? AND " + Constant.ACTIVE + " = ? AND " + Constant.ID_DONO_CARRO + " != ?";
+        String[] selectionArgs = {"0", "1", String.valueOf(UserSeason.getInstance().getUser().getId())};
         mDatabase = mHelper.getReadableDatabase();
         cursor = mDatabase.query(
                 Constant.DATABASE_CARRO,
@@ -139,10 +141,7 @@ public class CarroSQLite implements ICarroDao {
 
     @Override
     public List<Carro> findAllById() {
-        if (Objects.equals(UserSeason.getInstance().getUser().getCnh(), "")) {
-            List<Carro> carro = new ArrayList<>();
-            return carro;
-        }
+
         List<Carro> list = new ArrayList<>();
         Cursor cursor;
         String[] projection = {

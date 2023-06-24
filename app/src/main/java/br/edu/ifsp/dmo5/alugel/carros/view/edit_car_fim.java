@@ -61,6 +61,11 @@ public class edit_car_fim extends AppCompatActivity implements PhotoCadastroMVP.
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    protected void onDestroy() {
+        presenter.deatach();
+        super.onDestroy();
+    }
 
     public void takePhoto(View view) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {

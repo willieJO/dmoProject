@@ -55,6 +55,9 @@
     </string>
     <string name="leia_me">Aceite nossos termos de uso (Clique aqui para ler)</string>
     <string name="preco">Preço por dia</string>
+    <string name="RS">R$</string>
+    <string name="dd_mm_yyyy">dd/MM/yyyy</string>
+    <string name="alugar">Alugar</string>
 
     <string-array name="tipo_combustivel">
         <item>elétrico</item>

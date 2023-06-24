@@ -120,7 +120,7 @@ public class CarroXUserSQLite implements  ICarroXUser{
         mDatabase = mHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(Constant.DATABASE_ALUGADO, 1);
+        values.put(Constant.DATABASE_ALUGADO, 0);
 
         String selection = Constant.DATABASE_ID + " = ?";
         String[] selectionArgs = {String.valueOf(carro.getCarroId())};

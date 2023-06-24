@@ -64,30 +64,42 @@ public class CarrosQueAlugueiPocketRecyclerAdapter extends RecyclerView.Adapter<
                 holder.imagemCarro.setImageBitmap(decodedBitmap);
             }
         }
-        if (carro.getCarroEntregue() == 1 ) {
-            holder.entregar.setVisibility(View.INVISIBLE);;
-        }
 
         String dataString = carro.getDataInicio();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        Date data = null;
+        Date dataInicio = null;
         try {
-            data = sdf.parse(dataString);
+            dataInicio = sdf.parse(dataString);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Calendar calData = Calendar.getInstance();
-        calData.setTime(data);
-        long diferencaEmMillis = calData.getTimeInMillis() - calAtual.getTimeInMillis();
+
+        Calendar calDataInicio = Calendar.getInstance();
+        calDataInicio.setTime(dataInicio);
+
+        Calendar calAtual = Calendar.getInstance();
+        calAtual.set(Calendar.HOUR_OF_DAY, 0);
+        calAtual.set(Calendar.MINUTE, 0);
+        calAtual.set(Calendar.SECOND, 0);
+        calAtual.set(Calendar.MILLISECOND, 0);
+        Date dataAtual = new Date();
+        if (carro.getCarroEntregue() == 1) {
+            holder.entregar.setVisibility(View.INVISIBLE);
+        } else {
+            if (dataInicio != null && !dataInicio.after(dataAtual)) {
+                holder.entregar.setVisibility(View.VISIBLE);
+            } else {
+                holder.entregar.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        long diferencaEmMillis = calDataInicio.getTimeInMillis() - calAtual.getTimeInMillis();
         int diferencaEmDias = (int) (diferencaEmMillis / (24 * 60 * 60 * 1000));
 
         if (diferencaEmDias >= 2) {
             holder.cancelar.setVisibility(View.VISIBLE);
         } else {
             holder.cancelar.setVisibility(View.INVISIBLE);
-        }
-        if (carro.getCarroEntregue() == 1 ) {
-            holder.cancelar.setVisibility(View.INVISIBLE);;
         }
 
         holder.entregar.setOnClickListener(new View.OnClickListener() {
@@ -96,15 +108,17 @@ public class CarrosQueAlugueiPocketRecyclerAdapter extends RecyclerView.Adapter<
                 entregar(carro);
             }
         });
+
         holder.cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancelar(carro);
             }
         });
-        holder.modeloCarro.setText(carro.getModeloCarro());
 
+        holder.modeloCarro.setText(carro.getModeloCarro());
     }
+
     @SuppressLint("NotifyDataSetChanged")
     public void updateData(List<CarroXUserAlugado> newData) {
         data.clear();

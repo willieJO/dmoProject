@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import br.edu.ifsp.dmo5.alugel.carros.R;
@@ -35,7 +38,9 @@ public class EditarDados extends AppCompatActivity implements EditUserMVP.View {
     EditText editEmail;
     EditText editDataNascimento;
     EditText editSenha;
+    CheckBox checkTermos;
     Button editCadastrar;
+    TextView leia_me;
     private EditUserMVP.Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +108,10 @@ public class EditarDados extends AppCompatActivity implements EditUserMVP.View {
         editDataNascimento = findViewById(R.id.edittext_data_nasc_locador);
         editSenha = findViewById(R.id.edittext_senha_locador);
         editCadastrar = findViewById(R.id.button_save_locador);
+        checkTermos = findViewById(R.id.termos_de_uso);
+        checkTermos.setVisibility(View.INVISIBLE);
+        leia_me = findViewById(R.id.leia_me);
+        leia_me.setVisibility(View.INVISIBLE);
     }
 
     @Override

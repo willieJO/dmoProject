@@ -43,9 +43,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_car" />
 
-
         <TextView
-            android:id="@+id/text_dono"
+            android:id="@+id/preco_carro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RS"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/image_car"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/possui_itens"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
@@ -68,7 +78,7 @@
             app:layout_constraintBottom_toTopOf="@+id/editTextDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_dono" />
+            app:layout_constraintTop_toBottomOf="@+id/possui_itens" />
 
         <EditText
             android:id="@+id/editTextDate"
@@ -80,7 +90,7 @@
             android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_dono" />
+            app:layout_constraintTop_toBottomOf="@+id/possui_itens" />
 
         <Button
             android:id="@+id/button_alugar"

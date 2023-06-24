@@ -115,4 +115,9 @@ public class new_car_fim extends AppCompatActivity  implements PhotoCadastroMVP.
     public Bundle getBundle() {
         return getIntent().getExtras();
     }
+    @Override
+    protected void onDestroy() {
+        presenter.deatach();
+        super.onDestroy();
+    }
 }

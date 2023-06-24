@@ -39,6 +39,7 @@ public class EditVeiculoActivity extends AppCompatActivity implements VeiculoCad
     public EditText cpf;
     public Button continuar;
     private Carro carroParaEditar;
+    private EditText precoVeiculo;
     private VeiculoCadastroMVP.Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -71,6 +72,7 @@ public class EditVeiculoActivity extends AppCompatActivity implements VeiculoCad
         quilometragem.setText(carroParaEditar.getQuilometragem());
         crlve.setText(carroParaEditar.getCrlve());
         cpf.setText(carroParaEditar.getCpf());
+        precoVeiculo.setText(carroParaEditar.getPreço());
         String[] dataSet = getResources().getStringArray(R.array.tipo_combustivel);
         int indiceSelecionado = -1;
         for (int i = 0; i < dataSet.length; i++) {
@@ -116,6 +118,7 @@ public class EditVeiculoActivity extends AppCompatActivity implements VeiculoCad
         quilometragem = findViewById(R.id.edittext_quilometragem);
         crlve = findViewById(R.id.edittext_crlve);
         cpf = findViewById(R.id.edittext_cpf_proprietario);
+        precoVeiculo = findViewById(R.id.edittext_valor_por_dia);
         continuar = findViewById(R.id.button_salvar_carro);
     }
 
@@ -142,6 +145,7 @@ public class EditVeiculoActivity extends AppCompatActivity implements VeiculoCad
         carroParaEditar.setCrlve(crlve.getText().toString());
         carroParaEditar.setCpf(cpf.getText().toString());
         carroParaEditar.setCombustivel(spinner.getSelectedItem().toString());
+        carroParaEditar.setPreço(precoVeiculo.getText().toString());
         presenter.continuar(carroParaEditar);
     }
 
@@ -158,5 +162,10 @@ public class EditVeiculoActivity extends AppCompatActivity implements VeiculoCad
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+    @Override
+    protected void onDestroy() {
+        presenter.deatach();
+        super.onDestroy();
     }
 }

@@ -32,11 +32,12 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
     private Carro carro;
     private ImageView imagemCarro;
     private TextView modeloCarro;
-    private TextView donoCarro;
+    private TextView possuiEquipamentos;
     private Button alugar;
     private EditText dataEdit;
     private SimpleDateFormat dateFormatter;
     private EditText dataFimEdit;
+    private TextView precoText;
 
     private CarroDetailsMVP.Presenter presenter;
     @Override
@@ -74,13 +75,19 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
     }
 
     @Override
+    protected void onDestroy() {
+        presenter.deatach();
+        super.onDestroy();
+    }
+    @Override
     public void finViewById() {
         imagemCarro = findViewById(R.id.image_car);
         modeloCarro = findViewById(R.id.text_modelo_carro_);
-        donoCarro = findViewById(R.id.text_dono);
+        possuiEquipamentos = findViewById(R.id.possui_itens);
         alugar = findViewById(R.id.button_alugar);
         dataEdit = findViewById(R.id.editTextDate);
         dataFimEdit = findViewById(R.id.editDataFim);
+        precoText = findViewById(R.id.preco_carro);
     }
 
     @Override
@@ -128,7 +135,38 @@ public class DetalhesCarroActivity extends AppCompatActivity implements CarroDet
                 imagemCarro.setImageBitmap(decodedBitmap);
             }
         }
+        String equipamentos = "Possui: ";
+        precoText.setText(precoText.getText() + ": " + carro.getPreço() + " " + Constant.PORDIA);
         modeloCarro.setText(Constant.MODELO_CARRO + " " + carro.getModelo());
-        donoCarro.setText(Constant.DONO_CARRO + " " + carro.getCpf());
+        boolean colocarVirgula = false;
+        if (carro.getPorta().equals("1")) {
+            equipamentos += "4 portas";
+            colocarVirgula = true;
+        }
+        if (carro.getArCondicionado().equals("1")) {
+            if (colocarVirgula) {
+                equipamentos += ", ";
+            } else {
+                colocarVirgula = true;
+            }
+            equipamentos += "Ar condicionado";
+        }
+        if(carro.getEletrico().equals("1")) {
+            if (colocarVirgula) {
+                equipamentos += ", ";
+            } else {
+                colocarVirgula = true;
+            }
+            equipamentos += "Trio eletrico";
+        }
+        if (carro.getRadio().equals("1")) {
+            if (colocarVirgula) {
+                equipamentos += ", ";
+            } else {
+                colocarVirgula = true;
+            }
+            equipamentos += "Radio/GPS";
+        }
+        possuiEquipamentos.setText(equipamentos);
     }
 }

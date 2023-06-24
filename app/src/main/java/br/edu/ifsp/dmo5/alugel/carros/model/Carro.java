@@ -50,6 +50,7 @@ public class Carro implements Serializable {
         this.crlve = crlve;
         this.cpf = cpf;
         this.foto = foto;
+        this.preço = preco;
     }
 
     public int getId() {

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/backgroundcolor"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor">
 
 
     <ImageView
@@ -30,6 +30,9 @@
         android:text=""
         android:textAllCaps="true"
         android:textColor="@color/black"
+        android:textAlignment="center"
+        android:gravity="center"
+
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -38,10 +41,11 @@
 
 
     <TextView
-        android:id="@+id/text_dono"
+        android:id="@+id/possui_itens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
+        android:gravity="center"
         android:text=""
         android:textAllCaps="true"
         android:textColor="@color/black"
@@ -61,27 +65,27 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dono" />
+        app:layout_constraintTop_toBottomOf="@+id/possui_itens" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="259dp"
         android:layout_height="42dp"
         android:layout_marginTop="100dp"
-        android:textAlignment="center"
-        android:hint="DD/MM/YYYY"
+        android:hint="@string/dd_mm_yyyy"
         android:inputType="date"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dono" />
+        app:layout_constraintTop_toBottomOf="@+id/possui_itens" />
 
     <Button
         android:id="@+id/button_alugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="448dp"
-        android:text="Alugar"
         android:backgroundTint="@color/fontcolor"
+        android:text="@string/alugar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,12 +108,24 @@
         android:layout_width="259dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
-        android:hint="dd/MM/yyyy"
+        android:hint="@string/dd_mm_yyyy"
         android:inputType="date"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textDataFim" />
+
+    <TextView
+        android:id="@+id/preco_carro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/RS"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/image_car"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

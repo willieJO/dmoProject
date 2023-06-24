@@ -134,4 +134,9 @@ public class NewCarActivity extends AppCompatActivity implements VeiculoCadastro
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+    @Override
+    protected void onDestroy() {
+        presenter.deatach();
+        super.onDestroy();
+    }
 }

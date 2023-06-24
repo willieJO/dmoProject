@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import br.edu.ifsp.dmo5.alugel.carros.R;
 import br.edu.ifsp.dmo5.alugel.carros.mvp.CarrosQueAlugueiMVP;
@@ -58,6 +59,11 @@ public class CarrosQueAlugueiActivity extends AppCompatActivity implements Carro
 
     @Override
     public void showToast(String mensagem) {
-
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    protected void onDestroy() {
+        presenter.deatach();
+        super.onDestroy();
     }
 }
